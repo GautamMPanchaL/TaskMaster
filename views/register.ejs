@@ -1,0 +1,11 @@
+<%-include("partials/header")-%>
+
+<form action="/register" method="post">
+    <input type="email" name="email" id="" placeholder="email">
+    <input type="text" name="username" id="" placeholder="username">
+    <input type="password" name="password" id="" placeholder="password">
+    <button type="submit">Register</button>
+</form>
+<button onclick="redirectToLoginPage()">Go to login page</button>
+
+<%-include("partials/footer")-%>

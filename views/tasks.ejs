@@ -1,0 +1,19 @@
+<%- include("partials/header") -%>
+
+<h3>This is Task Page  <%= mailid %></h3>
+<a href="/<%= mailid %>/addtask"> add new Task</a>
+
+<h1>Tasks</h1>
+
+<ul>
+    <% tasks.forEach(task=> { %>
+        <li>
+            <%= task.name %> - <%= task.deadline %>
+                    <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
+        </li>
+        <% }); %>
+</ul>
+
+
+
+<%- include("partials/footer") -%>
