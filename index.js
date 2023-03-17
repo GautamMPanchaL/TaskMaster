@@ -16,7 +16,12 @@ const userSchema = new mongoose.Schema({
     email: String,
     userName: String,
     password: String,
-    tasks:[]
+    tasks: [
+    {
+      name: String,
+      deadline: Date,
+    },
+  ],
 });
 
 const User = new mongoose.model("User", userSchema);
@@ -33,18 +38,21 @@ app.get("/login",(req,res)=>{
     res.render("login.ejs");
 });
 
-app.get('/:mailid/tasks', (req, res) => {
+app.get("/:mailid/tasks", (req, res) => {
   const mailid = req.params.mailid;
   User.findOne({ email: mailid })
-    .then(user => {
+    .then((user) => {
       if (!user) {
         return res.status(404).send("User not found");
       }
 
-      // Pass the tasks array to the EJS template
-      res.render("tasks.ejs", { mailid: mailid, tasks: user.tasks });
+      // Sort the tasks array by deadline
+      const sortedTasks = user.tasks.sort((a, b) => a.deadline - b.deadline);
+
+      // Render the EJS template with the sorted tasks array
+      res.render("tasks", {mailid:mailid,tasks: sortedTasks });
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       res.status(500).send("An error occurred while retrieving tasks");
     });
@@ -56,6 +64,21 @@ app.get("/:mailid/addtask",(req,res)=>{
     // userSchema.findOne()
     res.render("addtask");
 });
+
+app.post('/:mailid/tasks/:id', async (req, res) => {
+  const mailid = req.params.mailid;
+  const taskId = req.params.id;
+
+  try {
+    await User.updateOne({ email: mailid }, { $pull: { tasks: { _id: taskId } } });
+    res.redirect(`/${mailid}/tasks`);
+    console.log('Task deleted successfully');
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("An error occurred while deleting the task");
+  }
+});
+
 
 app.post("/register", (req,res)=>{
     const emailed = req.body.email;
@@ -83,7 +106,6 @@ app.post("/register", (req,res)=>{
   .catch((err) => {
     console.error(err);
   });
-
 });
 
 app.post("/login", (req,res)=>{
@@ -137,6 +159,50 @@ app.post("/:mailid/addtask", (req, res) => {
       res.status(500).send("An error occurred while adding the task");
     });
 });
+
+
+app.get('/:mailid/tasks/:id/edit', (req, res) => {
+  const mailid = req.params.mailid;
+  const taskId = req.params.id;
+
+  User.findOne({ email: mailid })
+    .then((user) => {
+      const task = user.tasks.id(taskId);
+      if (!task) {
+        return res.status(404).send("Task not found");
+      }
+      res.render('edittask', { mailid: mailid, task: task });
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).send("An error occurred while retrieving the task");
+    });
+});
+
+
+app.post('/:mailid/tasks/:id/edit', (req, res) => {
+  const mailid = req.params.mailid;
+  const taskId = req.params.id;
+  const updatedName = req.body.taskname;
+  const updatedDeadline = req.body.taskdeadline;
+
+  User.findOne({ email: mailid })
+    .then((user) => {
+      const task = user.tasks.id(taskId);
+      task.name = updatedName;
+      task.deadline = updatedDeadline;
+      return user.save();
+    })
+    .then(() => {
+      res.redirect(`/${mailid}/tasks`);
+      console.log('Task updated successfully');
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).send("An error occurred while updating the task");
+    });
+});
+
 
 
 

@@ -1,19 +1,21 @@
 <%- include("partials/header") -%>
 
-<h3>This is Task Page  <%= mailid %></h3>
-<a href="/<%= mailid %>/addtask"> add new Task</a>
-
+<h3>This is Task  <%= mailid %>
+</h3>
+<a href="/<%= mailid %>/addtask">Add new Task</a>
 <h1>Tasks</h1>
-
 <ul>
-    <% tasks.forEach(task=> { %>
+    <% tasks.forEach(function(task) { %>
         <li>
-            <%= task.name %> - <%= task.deadline %>
-                    <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
+            <%= task.name %> - Deadline: <%= task.deadline %>
+                    <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="GET">
+                        <button type="submit">Edit</button>
+                    </form>
         </li>
         <% }); %>
 </ul>
-
-
 
 <%- include("partials/footer") -%>
