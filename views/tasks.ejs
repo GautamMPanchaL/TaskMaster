@@ -8,6 +8,7 @@
     <% tasks.forEach(function(task) { %>
         <li>
             <%= task.name %> - Deadline: <%= task.deadline %>
+            <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
                     <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST">
                         <button type="submit">Delete</button>
                     </form>
@@ -18,4 +19,5 @@
         <% }); %>
 </ul>
 
+<a class="" href="/logout" role="button">Log Out</a>
 <%- include("partials/footer") -%>
