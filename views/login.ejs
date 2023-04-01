@@ -1,10 +1,19 @@
 <%-include("partials/header")-%>
-
-    <form action="/login" method="post">
-        <input type="text" name="username" id="" placeholder="username">
-        <input type="password" name="password" id="" placeholder="password">
+<div class="container" >
+    <br><br>
+    <form action="/login" method="post" autocomplete="off">
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">User Name</span>
+                <input type="text" name="username" id="" placeholder="Username">
+            </div>
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" id="" placeholder="Password">
+            </div>
+        </div>
         <button type="submit">Login</button>
     </form>
-    <button onclick="redirectToRegisterPage()">Register</button>
-
-    <%-include("partials/footer")-%>
+</div>
+<button onclick="redirectToRegisterPage()">Register</button>
+<%-include("partials/footer")-%>

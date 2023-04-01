@@ -1,15 +1,16 @@
 <%- include("partials/header") -%>
 
-<h3>Edit Task</h3>
+<h1 class="TaskPage">Edit Task</h1>
 
 <form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="POST">
+    <div class="boxedit">
     <label for="taskname">Task Name:</label>
     <input type="text" id="taskname" name="taskname" value="<%= task.name %>">
-
+    <br><br>
     <label for="taskdeadline">Deadline:</label>
     <input type="datetime-local" id="taskdeadline" name="taskdeadline"
         value="<%= task.deadline.toISOString().slice(0, -8) %>">
-
+    </div>
     <button type="submit">Update</button>
 </form>
 <%- include("partials/footer") -%>

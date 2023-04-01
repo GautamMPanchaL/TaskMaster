@@ -78,7 +78,7 @@ app.get("/:mailid/tasks", (req, res) => {
       const sortedTasks = user.tasks.sort((a, b) => a.deadline - b.deadline);
 
       // Render the EJS template with the sorted tasks array
-      res.render("tasks", {mailid:user.email ,tasks: sortedTasks });
+      res.render("tasks", {mailid:user.email ,tasks: sortedTasks, name: user.userName });
     })
     .catch((err) => {
       console.error(err);

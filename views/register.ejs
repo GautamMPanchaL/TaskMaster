@@ -1,11 +1,24 @@
 <%-include("partials/header")-%>
-
-<form action="/register" method="post">
-    <input type="email" name="email" id="" placeholder="email">
-    <input type="text" name="username" id="" placeholder="username">
-    <input type="password" name="password" id="" placeholder="password">
-    <button type="submit">Register</button>
-</form>
+<div class="container" >
+    <br><br>
+    <form action="/register" method="post">
+        <div class="user-details">
+            <div class="input-box">
+              <span class="details">User Name</span>
+              <input type="text" name="username" id="" placeholder="Enter your Username">
+            </div>  
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="email" name="email" id="" placeholder="Enter your Email">
+            </div>
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" id="" placeholder="Enter your Password">
+            </div>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
 <button onclick="redirectToLoginPage()">Go to login page</button>
 
 <%-include("partials/footer")-%>

@@ -1,23 +1,24 @@
 <%- include("partials/header") -%>
 
-<h3>This is Task  <%= mailid %>
+<h3>Welcome to Task Master, <%= mailid %>
 </h3>
-<a href="/<%= mailid %>/addtask">Add new Task</a>
-<h1>Tasks</h1>
-<ul>
+<a class="button" href="/<%= mailid %>/addtask">Add new Task</a>
+<h1 class="TaskPage">All Tasks</h1>
     <% tasks.forEach(function(task) { %>
-        <li>
-            <%= task.name %> - Deadline: <%= task.deadline %>
+        <li style="list-style-type: none">
+            <div class="boxtask">
+            <div id="task"><%= task.name %> <br> Deadline: <%= task.deadline %></div>
             <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
-                    <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST">
+                <br> <br>                   
+                    <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST" style="display:inline">
                         <button type="submit">Delete</button>
                     </form>
-                    <form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="GET">
-                        <button type="submit">Edit</button>
+                    <form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="GET" style="display:inline" >
+                            <button type="submit">Edit</button>
                     </form>
+                <br> <br>
+            </div>
         </li>
         <% }); %>
-</ul>
-
-<a class="" href="/logout" role="button">Log Out</a>
+<a class="button" href="/logout" role="button">Log Out</a>
 <%- include("partials/footer") -%>
