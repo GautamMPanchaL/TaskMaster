@@ -1,16 +1,27 @@
 html {
-    background-color: #ffe57c;
-    background-image: -webkit-linear-gradient (65deg, #f5ee70 50%, #ff583e 50%);
+    
+    background-color: #00c7c4;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
     min-height: 1000px;
     font-family: 'helvetica neue';
 }
+
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
 /* style the header text */
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('path/to/dancingscript.ttf') format('truetype');
+}
+
 h1 {
-    color: #fff;
+    color: #9AC5F4;
     padding: 10px;
     font-size: 48px;
     font-weight: bold;
+    font-family: 'Dancing Script', cursive;
 }
+
 .TaskPage {
     color :black;
 }

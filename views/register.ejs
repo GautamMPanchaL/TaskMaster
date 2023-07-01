@@ -1,5 +1,5 @@
 <%-include("partials/header")-%>
-<div class="container" >
+<div class="signupform" >
     <br><br>
     <form action="/register" method="post">
         <div class="user-details">
@@ -18,7 +18,7 @@
         </div>
         <button type="submit">Register</button>
     </form>
+    <button onclick="redirectToLoginPage()">Go to login page</button> 
 </div>
-<button onclick="redirectToLoginPage()">Go to login page</button>
 
 <%-include("partials/footer")-%>

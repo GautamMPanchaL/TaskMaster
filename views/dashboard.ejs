@@ -7,7 +7,7 @@
     <% tasks.forEach(function(task) { %>
         <li style="list-style-type: none">
             <div class="boxtask">
-            <div id="task"><%= task.name %> <br> Deadline: <%= task.deadline %></div>
+            <div id="task"> <%= task.name %> <br> <%= task.category%> <br> Deadline:<%= task.deadline.toLocaleString() %></div>
             <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
                 <br> <br>                   
                     <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST" style="display:inline">
@@ -20,5 +20,20 @@
             </div>
         </li>
         <% }); %>
+
+        <div class="chart">
+            <% tasks.forEach(task=> { %>
+                <div class="bar" style="width: <%= calculateBarWidth(task.deadline) %>;">
+                    <div class="name">
+                        <%= task.name %>
+                    </div>
+                    <div class="deadline">
+                        <%= task.deadline.toLocaleDateString() %>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+
+
 <a class="button" href="/logout" role="button">Log Out</a>
 <%- include("partials/footer") -%>

@@ -1,0 +1,134 @@
+/* background colour */
+html {
+
+    background-color: #DAFFFB;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+    min-height: 1000px;
+    font-family: 'helvetica neue';
+}
+
+/* for headings */
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('path/to/dancingscript.ttf') format('truetype');
+}
+
+h1 {
+    color: #001C30;
+    padding: 10px;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+.signupform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    padding: 20px;
+}
+
+.signupform form {
+    background-color: #f5f5f5;
+    /* Background color of the form box */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.signupform form:hover {
+    background-color: #ebebeb;
+    /* Background color on hover */
+}
+
+.signupform .input-box {
+    margin-bottom: 20px;
+}
+
+.signupform .details {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.signupform input[type="text"],
+.signupform input[type="email"],
+.signupform input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.signupform input[type="text"]::placeholder,
+.signupform input[type="email"]::placeholder,
+.signupform input[type="password"]::placeholder {
+    color: #999;
+}
+
+.signupform button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #9AC5F4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signupform button[type="submit"]:hover {
+    background-color: #7fa8da;
+    /* Background color on hover */
+}
+
+.signupform button {
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    color: #9AC5F4;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.signupform button:hover {
+    text-decoration: underline;
+}
+
+
+#task {
+    display: inline-block;
+    background-color: #9AC5F4;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9AC5F4;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.deadline {
+    font-size: 12px;
+}

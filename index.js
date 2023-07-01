@@ -1,5 +1,5 @@
 
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -10,16 +10,19 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const _ = require('lodash');
 
 
+
 const app = express();
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
+
 app.use(bodyParser.urlencoded({
   extended:true
 }));
+const secret = process.env.SECRET;
 app.use(session({
-  secret: "The key should be in environment file",
+  secret: secret,
   resave: false,
   saveUninitialized: false
 }));
@@ -27,12 +30,20 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+const key = process.env.MONGO_URI; 
+mongoose.connect( key, {useNewUrlParser: true})
+.then(()=>{
+  console.log("connected to DB");
+})
+.catch((err)=>{
+  console.log(err);
+})
 
-mongoose.connect("mongodb://127.0.0.1/TaskMasterDB", {useNewUrlParser: true});
-
-
+// body parser for parsing 
 app.use(bodyParser.urlencoded({extended: true}));
 
+
+// user Schema for user 
 const userSchema = new mongoose.Schema({
     email: String,
     userName: String,
@@ -40,30 +51,43 @@ const userSchema = new mongoose.Schema({
     tasks: [
     {
       name: String,
+      category: String,
       deadline: Date,
     },
   ],
 });
+
+
 userSchema.plugin(passportLocalMongoose);
 
-const User = new mongoose.model("User", userSchema);
-passport.use(User.createStrategy());
 
+const User = new mongoose.model("User", userSchema);
+
+// passport configration 
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+// home page route
 app.get("/", (req,res)=>{
     res.render("home.ejs");
 });
+
 
 // Register page
 app.get("/register", (req,res)=>{
     res.render("register.ejs");
 });
+
+
 // Login Page
 app.get("/login",(req,res)=>{
     res.render("login.ejs");
 });
+
+
+
 // Tasks Page for specific 
 app.get("/:mailid/tasks", (req, res) => {
   const mailid = req.params.mailid;
@@ -73,11 +97,11 @@ app.get("/:mailid/tasks", (req, res) => {
       if (!user) {
         return res.status(404).send("User not found");
       }
-
       // Sort the tasks array by deadline
       const sortedTasks = user.tasks.sort((a, b) => a.deadline - b.deadline);
 
       // Render the EJS template with the sorted tasks array
+      console.log(sortedTasks);
       res.render("tasks", {mailid:user.email ,tasks: sortedTasks, name: user.userName });
     })
     .catch((err) => {
@@ -188,6 +212,7 @@ app.post("/login", (req,res)=>{
 app.post("/:mailid/addtask", (req, res) => {
   const mailid = req.params.mailid;
   const taskname = req.body.nameoftask;
+  const category = req.body.category;
   const deadline = req.body.endoftask;
 
   console.log(taskname);
@@ -202,6 +227,7 @@ app.post("/:mailid/addtask", (req, res) => {
       // Create a new task object
       const newTask = {
         name: taskname,
+        category: category,
         deadline: deadline
       };
 
@@ -222,6 +248,7 @@ app.post("/:mailid/addtask", (req, res) => {
 });
 
 
+
 app.get('/:mailid/tasks/:id/edit', (req, res) => {
   const mailid = req.params.mailid;
   const taskId = req.params.id;
@@ -239,6 +266,7 @@ app.get('/:mailid/tasks/:id/edit', (req, res) => {
       return res.status(500).send("An error occurred while retrieving the task");
     });
 });
+
 
 
 app.post('/:mailid/tasks/:id/edit', (req, res) => {
@@ -267,4 +295,4 @@ app.post('/:mailid/tasks/:id/edit', (req, res) => {
 
 
 
-app.listen(3000, ()=>{console.log("Server started")});
+app.listen(3000, ()=>{console.log(`Server started on port 3000`)});
