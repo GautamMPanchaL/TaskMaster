@@ -18,6 +18,12 @@
 <button onclick="redirectToRegisterPage()">Register</button> -->
     <link rel="stylesheet" href="/css/login.css">
     <section id="login">
+        <% if(opt==="success" ) { %>
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Your account has been generated.</h4>
+                <p class="mb-0">Please login to access your account.</p>
+            </div>
+        <% } %>
         <div class="wrapper">
             <div class="logreg-box">
 

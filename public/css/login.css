@@ -135,7 +135,7 @@
 }
 
 .input-box input:valid~label {
-    color: #000000
+    color: #ffffff
 }
 
 .input-box input:invalid~label {

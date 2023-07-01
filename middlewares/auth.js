@@ -9,7 +9,8 @@ exports.isAuthentic = (req, res, next)=>{
 
     try{
         // extract jwt token
-        const token =  req.cookies.MoneyMaster;
+        const token =  req.cookies.TaskMaster;
+        console.log(req.cookies.TaskMaster);
         if(!token){
             return res.status(401).json({
                 success:false,

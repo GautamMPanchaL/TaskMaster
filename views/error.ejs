@@ -1,0 +1,14 @@
+<%-include("partials/pheader")-%>
+    <link rel="stylesheet" href="/css/error.css">
+    <br>
+    <div class="errorn">
+        <% if(error !=undefined) { %>
+            <h1>
+                <%=error%>
+            </h1>
+            <h2>Oops ! <%= field %>
+            </h2>
+            <% } %>
+    </div>
+    <!-- <img src="/images/404.png" alt="PAGE NOT FOUND" height="500px"> -->
+<%-include("partials/pfooter")-%>

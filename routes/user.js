@@ -17,7 +17,7 @@ router.get("/login",(req,res)=>{
     // console.log(req.cookies);
     const str = req.cookies.signup;
     res.clearCookie("signup");
-    // console.log(str);
+    console.log(str);
     res.render('login',{opt : str});
 });
 
