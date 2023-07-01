@@ -1,0 +1,279 @@
+/* ********************************* login ************************************* */
+#login {
+    min-height: 110vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url("/images/background.jpg");
+    /* top: 50%; */
+    /* position: absolute; */
+}
+
+.wrapper {
+    position: absolute;
+    width: 30%;
+    margin: 0 35%;
+    height: 720px;
+    top: 25%;
+    /* bottom: 5%; */
+    background-color: transparent;
+    /* top: 100%; */
+    /* z-index: 1; */
+    display: flex;
+    /* align-items: center; */
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 1.5%;
+}
+
+@media only screen and (max-height: 720px) {
+    .wrapper {
+        position: static;
+    }
+}
+
+.back-img {
+    /* position: absolute; */
+    bottom: 0;
+    height: 110vh;
+    /* width: 70%; */
+    /* display: flex; */
+    /* justify-content: right; */
+    align-content: end;
+    flex-direction: column;
+}
+
+.back-img img {
+    height: 110vh;
+    /* width: 70%; */
+    object-fit: fill;
+    margin-left: 35%;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+.wrapper .logreg-box {
+    width: 100%;
+    /* background-color: pink */
+
+}
+
+.logreg-box .logreg-title {
+    text-align: center;
+    margin-bottom: 10%;
+    color: rgb(255, 255, 255);
+}
+
+.logreg-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.logreg-title p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.logreg-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    /* background-color: red; */
+    margin: 5% 0;
+    /* padding-left: 18%; */
+    border-bottom: 2px solid white;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    padding-right: 5%;
+}
+
+.input-box label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* on focus will happen (~means sibling +means child) */
+
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -10%;
+}
+
+.input-box input:valid~label {
+    color: #000000
+}
+
+.input-box input:invalid~label {
+    color: #000000;
+    top: -10%;
+}
+
+.input-box input:valid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10004;";
+}
+
+.input-box input:invalid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10006;";
+}
+
+.input-box .icon {
+    position: absolute;
+    font-size: 1rem;
+    right: 0;
+    top: 50%;
+    color: rgb(0, 0, 0);
+    transform: translateY(-50%);
+}
+
+.logreg-box .remember-forgot {
+    font-size: 14.5px;
+    color: white;
+    font-weight: 500;
+    margin: 0 5px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 4px;
+}
+
+.remember-forgot a {
+    color: rgb(0, 0, 0);
+    text-decoration: none
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.logreg-box .btn {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 2px 5px rgb(26, 24, 24);
+    cursor: pointer;
+    font-size: 1rem;
+    color: black;
+    font-weight: 600;
+    transition: .9s;
+}
+
+.logreg-box .btn:hover {
+    background: rgba(255, 11, 11, 0.751);
+}
+
+.logreg-box .logreg-link {
+    font-size: 14.5px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 4% 0 3%;
+
+}
+
+.logreg-link p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logreg-link p a:hover {
+    text-decoration: underline;
+}
+
+.media-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.media-options a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 2px white solid;
+    box-shadow: 0 2px 5px rgb(26, 24, 24);
+    border-radius: 45px;
+    margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.media-options a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.media-options a i {
+    font-size: 25px;
+    margin: 0 2%;
+}
+
+.media-options a span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.classname {
+    animation-name: cssAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    from {
+        transform: rotate(0deg) scale(0) skew(0deg) translate(0);
+    }
+
+    to {
+        transform: rotate(0deg) scale(1) skew(0deg) translate(0);
+    }
+}

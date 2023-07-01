@@ -7,7 +7,7 @@ app.use(cookieParser());
 
 const {login , signup ,logout} = require("../controllers/authentication");
 const { insertnew, profile, dashboard, addnewTask, updateTaskpage, updateTask } = require("../controllers/userController");
-const {isAuthentic} = require("../middlewares/auht");
+const {isAuthentic} = require("../middlewares/auth");
 
 router.get("/",(req,res)=>{
     res.render('home.ejs');

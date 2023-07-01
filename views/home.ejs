@@ -1,8 +1,194 @@
 <%-include("partials/header")-%>
-    <img  class="taskImg" src="/images/Task.jpg" alt="Task">
-    <br><br>
-    <div>
-        <a class="button" id="login-button" href="/login">Login</a>
-        <a class="button" href="/register">Register</a>
-    </div>
-<%-include("partials/footer")-%>
+    <link rel="stylesheet" href="/css/home.css">
+    <section id="title">
+        <div class="container-fluid">
+            <div>
+                <div class="row" style="padding: 5% 15%;">
+                    <!-- <div class="col-lg-6"> -->
+                    <h1>Simple way to manage Daily Tasks</h1>
+                    <!-- <h2 style="text-align: center; padding-bottom: 4%; color: rgb(106, 22, 179);">Download</h2>
+                        <button type="button" class="btn btn-dark btn-lg"><i class="fa-brands fa-android"></i>
+                            Android</button>
+                        <button type="button" class="btn btn-outline-light btn-lg"><i class="fa-brands fa-apple"></i>
+                            IOS</button> -->
+                    <!-- </div> -->
+                    <!-- <div class="col-lg-6">
+                        <img src="images/iphone6.png" class="dog-p" alt="iphone-mockup" style="height: 40rem;">
+                    </div> -->
+                </div>
+                <br>
+            </div>
+        </div>
+    </section>
+    <!-- Features -->
+
+    <section id="features">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 ">
+                    <!-- <i class="fa-regular fa-circle-check fa-4x ficon"></i> -->
+                    <!-- <i class="fa-solid fa-list fa-4x ficon"></i> -->
+                    <i class="fa-solid fa-list-check fa-4x ficon"></i>
+                    <h3>Simple Schedule Planner</h3>
+                    <p>It allows users to manage their tasks and plan them in orderly manner to help them in saving
+                        Time.</p>
+                </div>
+                <div class="col-lg-4 ">
+                    <!-- <i class="fa-solid fa-bullseye fa-4x ficon"></i> -->
+                    <!-- <i class="fa-regular fa-stopwatch fa-4x ficon"></i> -->
+                    <i class="fa-solid fa-calendar-check fa-4x ficon"></i>
+                    <h3>All details in one place</h3>
+                    <p>All the completed , remaining and upcoming are available to you in a orderly manner to allow you
+                        to keep track of
+                        what you have
+                        completed and what you still need to complete.
+                    </p>
+                </div>
+                <div class="col-lg-4 ">
+                    <!-- <i class="fa-solid fa-heart fa-4x ficon"></i> -->
+                    <!-- <i class="fa-solid fa-chart-pie-simple-circle-dolla"></i> -->
+                    <!-- <i class="fa-regular fa-chart-pie-simple-circle-dollar fa-2xl ficon"></i> -->
+                    <!-- <i class="fa-solid fa-chart-pie fa-4x ficon"></i> -->
+                    <i class="fa-solid fa-stopwatch-20 fa-4x ficon"></i>
+                    <h3>Painless Managing</h3>
+                    <p>Allow you to see the remaining and upcomming tasks with their deadlines and even allows you to
+                        update the tasks to
+                        match your
+                        time schedule.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials -->
+
+    <section id="testimonials">
+        <h1>See what others have to say : </h1>
+        <div class="myslick">
+            <div class="sli">
+                <h4 class="slitext">I really love the simplicity and intitutive design of the website.</h4>
+                <!-- <img class="test-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+                <em class="btitle">Vikas</em>
+            </div>
+            <div class="sli">
+                <h4 class="slitext">I love the alarm feature that make me remember what to do , because i sometimes
+                    forget
+                    about the tasks and it really helps me.
+                </h4>
+                <!-- <img class="test-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+                <em class="btitle">Sumit</em>
+            </div>
+            <div class="sli">
+                <h4 class="slitext">The graph feature is really good to see how many tasks i have completed.
+                </h4>
+                <!-- <img class="test-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+                <em class="btitle">Vaibhav</em>
+            </div>
+            <div class="sli">
+                <h4 class="slitext">This app keeps me organised and in control of my daily life and it's so easy to use.
+                </h4>
+                <!-- <img class="test-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+                <em class="btitle">Gautam</em>
+            </div>
+            <div class="sli">
+                <h4 class="slitext">A simple accessable app that allows you keep records of your daily life
+                    across days,weeks and months.
+                </h4>
+                <!-- <img class="test-image" src="images/dog-img.jpg" alt="dog-profile"> -->
+                <em class="btitle">Tejas</em>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+
+    <section id="about">
+
+        <h2>Love to hear from You,
+            <br>
+            Get in touch .
+        </h2>
+        <!-- <form action="" method="post">
+            <div class="input-box">
+                <span class="icon"><i class='bx bx-user-circle'></i></span>
+                <input type="text" required name="username" id="username" autocomplete="off" readonly
+                    onfocus="this.removeAttribute('readonly');">
+                <label for="">Full Name</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxl-gmail'></i></span>
+                <input type="email" required name="email" id="email" autocomplete="off" readonly
+                    onfocus="this.removeAttribute('readonly');">
+                <label for="">Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                <input type="text" required name="msg" id="msg" autocomplete="off" readonly
+                    onfocus="this.removeAttribute('readonly');">
+                <label for="">Message</label>
+            </div>
+        </form> -->
+
+        <form onsubmit="copyToGmail()">
+            <div class="container">
+                <img style="margin: 5%;" src="https://blog.injixo.com/hubfs/How-to-boost-Employee-Engagement-01.png"
+                    alt="">
+                <div class="formgrou">
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating mb-1" style="margin-top: 3%;">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-1" style="margin-top: 3%;">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                    placeholder="phone number">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-floating" style="margin-top: 3%;">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                            value="sanidhya@example.com">
+                    </div> -->
+                    <div class="form-floating" style="margin-top: 3%;">
+                        <label for="desc">What would you Like to Discuss</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="desc" name="desc"
+                            style="height: 100px"></textarea>
+                    </div>
+                    <button style="margin: 5%;" class="button" type="submit">Submit</button>
+                    <p>By submitting this form, you agree that Task Master may share this information with its
+                        authorized
+                        Solution
+                        Partners, and that you may be contacted about this inquiry by Task Master or a partner of Task
+                        Master.</p>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function copyToGmail() {
+            var to = "gautampanchal977@gmail.com";
+            var subject = document.getElementById("name").value;
+            var body = document.getElementById("phone").value + "\n" + document.getElementById("desc").value;
+
+            var mailtoLink = "mailto:" + encodeURIComponent(to) + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+    <script type="text/javascript">
+        $('.myslick').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+    </script>
+    <%-include("partials/footer")-%>

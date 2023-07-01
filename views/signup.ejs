@@ -1,0 +1,86 @@
+<%-include("partials/header")-%>
+    <!-- <div class="container" >
+    <br><br>
+    <form action="/register" method="post">
+        <div class="user-details">
+            <div class="input-box">
+              <span class="details">User Name</span>
+              <input type="text" name="username" id="" placeholder="Enter your Username">
+            </div>  
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="email" name="email" id="" placeholder="Enter your Email">
+            </div>
+            <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" id="" placeholder="Enter your Password">
+            </div>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
+<button onclick="redirectToLoginPage()">Go to login page</button> -->
+    <link rel="stylesheet" href="/css/login.css">
+    <section id="login">
+        <div class="wrapper">
+            <div class="logreg-box">
+                <!-- Register-form -->
+
+                <div class="form-box register classname">
+                    <div class="logreg-title">
+                        <h2>Registration</h2>
+                        <p>Please provide your correct details</p>
+                    </div>
+
+                    <form action="/signup" method="post" autocomplete="off">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bx-user-circle'></i></span>
+                            <input type="text" required name="username" id="username" autocomplete="off" readonly
+                                onfocus="this.removeAttribute('readonly');">
+                            <label for="">User Name</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxl-gmail'></i></span>
+                            <input type="email" required name="email" id="email" autocomplete="off" readonly
+                                onfocus="this.removeAttribute('readonly');">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                            <input type="password" id="password" name="password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+                            <label for="">New Password</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                            <input type="password" id="cpassword" name="cpassword" onkeyup="checkPasswordMatch()"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+                            <label for="">Confirm Password</label>
+                        </div>
+                        <label style="color: rgb(0, 0, 0);margin-bottom: 10%;">**Password must contain at least one
+                            number and
+                            one uppercase and lowercase letter, and at least 8 or more characters.</label>
+                        <button type="submit" class="btn">Register</button>
+
+                        <div class="logreg-link">
+                            Already have an account? <a href="/login" class="login-link"> Login</a>
+                        </div>
+                    </form>
+                    <!-- <div class="media-options">
+                        <a href="#">
+                            <i class='bx bxl-google'></i>
+                            <span>
+                                Login with Google
+                            </span>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/javascript/log-reg.js"></script>
+    <%-include("partials/footer")-%>

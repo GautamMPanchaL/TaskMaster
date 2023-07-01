@@ -1,5 +1,5 @@
 <%-include("partials/header")-%>
-<div class="container" >
+    <!-- <div class="container" >
     <br><br>
     <form action="/login" method="post" autocomplete="off">
         <div class="user-details">
@@ -15,5 +15,53 @@
         <button type="submit">Login</button>
     </form>
 </div>
-<button onclick="redirectToRegisterPage()">Register</button>
-<%-include("partials/footer")-%>
+<button onclick="redirectToRegisterPage()">Register</button> -->
+    <link rel="stylesheet" href="/css/login.css">
+    <section id="login">
+        <div class="wrapper">
+            <div class="logreg-box">
+
+                <!-- login-form -->
+                <div class="form-box login classname">
+                    <div class="logreg-title">
+                        <h2>Login</h2>
+                        <p>Please login to get started</p>
+                    </div>
+
+                    <form action="/login" method="post" autocomplete="off">
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxl-gmail'></i></span>
+                            <input type="email" required name="email" id="email" autocomplete="off" readonly
+                                onfocus="this.removeAttribute('readonly');">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                            <input type="password" id="password" name="password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+                            <label for="">Password</label>
+                        </div>
+                        <label style="color: rgb(0, 0, 0);margin-bottom: 10%;">**Password must contain at least one
+                            number and one uppercase and
+                            lowercase letter, and at least 8 or more characters.</label>
+                        <button type="submit" class="btn">Login</button>
+
+                        <div class="logreg-link">
+                            Don't have an account? <a href="/signup" class="register-link"> Register</a>
+                        </div>
+                    </form>
+                    <!-- <div class="media-options">
+                    <a href="#">
+                        <i class='bx bxl-google'></i>
+                        <span>
+                            Login with Google
+                        </span>
+                    </a>
+                </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <%-include("partials/footer")-%>

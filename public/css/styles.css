@@ -1,210 +1,144 @@
-html {
-    
-    background-color: #00c7c4;
-    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
-    min-height: 1000px;
-    font-family: 'helvetica neue';
-}
-
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-
-/* style the header text */
-@font-face {
-    font-family: 'Dancing Script';
-    src: url('path/to/dancingscript.ttf') format('truetype');
-}
-
-h1 {
-    color: #9AC5F4;
-    padding: 10px;
-    font-size: 48px;
-    font-weight: bold;
-    font-family: 'Dancing Script', cursive;
-}
-
-.TaskPage {
-    color :black;
-}
-
-/* center the header text */
-header {
-    text-align: center;
-}
-body {
-    text-align: center;
-}
-label {
-    font-size: x-large;
-}
-/* style the buttons */
-button {
-    background: #A683E3;
-    background-image: -webkit-linear-gradient(top, #A683E3, #A683E7);
-    background-image: -moz-linear-gradient(top, #A683E3, #A683E7);
-    background-image: -ms-linear-gradient(top, #A683E3, #A683E7);
-    background-image: -o-linear-gradient(top, #A683E3, #A683E7);
-    background-image: linear-gradient(to bottom, #A683E3, #A683E7);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    font-family: Georgia;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 8px 15px 10px 15px;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-button:hover {
-    background: #7338e0;
-    background-image: -webkit-linear-gradient(top, #7338e0, #7338e0);
-    background-image: -moz-linear-gradient(top, #7338e0, #7338e0);
-    background-image: -ms-linear-gradient(top, #7338e0, #7338e0);
-    background-image: -o-linear-gradient(top, #7338e0, #7338e0);
-    background-image: linear-gradient(to bottom, #7338e0, #7338e0);
-    text-decoration: none;
-}
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    cursor: pointer;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-/* style the login button */
-#login-button {
-    margin-right: 16px;
-    background-color: #6c757d;
-}
-#task {
-    font-size: larger;
-    margin: 0px;
-    padding: 0px;
-}
-input {
-    text-align: center;
-    height: 60px;
-    top: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #9b6bf357;
-    font-size: 20px;
-    font-weight: 200;
-    width: fit-content;
-}
-.box {
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
-}
-
-.boxtask {
-    max-width: 400px;
-    margin: 40px auto;
-    /* text-emphasis: bold; */
-    background: rgb(177, 241, 177);
-    border-radius: 5px;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
-}
-
-.boxtask::first-line {
-    color: #A683E3;
-    font-size: larger;
-    font-weight: bold;
-}
-
-.boxedit {
-    max-width: 400px;
-    padding: 10px;
-    /* height: 150px; */
-    margin: 50px auto;
-    text-emphasis: bold;
-    background: rgb(237, 210, 255);
-    border-radius: 5px;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
-}
-
-.boxedit::content {
-    font-size: xx-large;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    max-width: 350px;
-    background-color: #79ffa8;
-    padding: 15px 25px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.container .title {
-    font-size: 25px;
+/******************* navbar *********************/
+.nav-link {
+    font-size: 1.1rem;
     font-weight: 500;
-    position: relative;
-}
-
-#heading {
-    background-color: #A683E3;
-    text-align: center;
-}
-
-.item {
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #F1F1F1;
-}
-
-.item:last-child {
-    border-bottom: 0;
-}
-
-p {
-    margin: 0;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 200;
-    color: #00204a;
-}
-
-form.item {
-    text-align: center;
-    margin-left: 20px;
-}
-::placeholder {
-    color: grey;
-    opacity: 1;
-}
-footer {
     color: white;
-    color: rgba(0, 0, 0, 0.5);
-    text-align: center;
 }
 
-form .user-details .input-box {
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 30px);
+.navbar {
+    /* position: fixed; */
+    display: flex;
+    z-index: 99;
+    background-color: #000000;
 }
 
-form .input-box span.details {
-    display: block;
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    width: 40%;
+    top: 50%;
+    right: auto;
+    overflow: hidden;
+    animation: animate 3s linear forwards;
+}
+
+.navbar .navbar-brand:hover {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+
+    30% {
+        width: 10%;
+    }
+
+    60% {
+        width: 20%;
+    }
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .navbar-toggler {
+    background-color: black;
+}
+
+.navbar .nav-item .nav-link:hover {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
+
+.nav-item .dropdown-menu {
+    min-width: 0;
+    transition: .5s;
+    background: #000000;
+}
+
+.nav-item .dropdown-item {
+    color: rgb(255, 255, 255);
     font-weight: 500;
-    margin-bottom: 5px;
 }
-.user-details .input-box input:valid {
-    border-color: #9b59b6;
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+}
+
+.navbar-nav .item1 a {
+    position: relative;
+    display: block;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar-nav .item1 a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0ef;
+    box-shadow: 0 0 1em #0ef;
+    transition: 0.5s ease-in-out;
+}
+
+.navbar-nav .item1 a:hover::after {
+    width: 100%;
+}
+
+/******************************** footer **********************************/
+.ficon {
+    color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+}
+
+.fa-2xl:hover {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
+
+#footer {
+    background: #000000;
+    text-align: center;
+    padding: 3% 3%;
+}
+
+#footer .p {
+    color: beige;
+}
+
+.fa-2xl {
+    color: white;
+    text-align: center;
+    margin: 5%;
+}
+
+html {
+    scroll-behavior: smooth;
 }
