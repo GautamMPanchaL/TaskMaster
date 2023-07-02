@@ -132,6 +132,8 @@
 .input-box input:focus~label,
 .input-box input:valid~label {
     top: -10%;
+    /* transform: translate(-10%); */
+    letter-spacing: .1em;
 }
 
 .input-box input:valid~label {

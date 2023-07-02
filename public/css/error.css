@@ -6,14 +6,23 @@
 
 .errorn h1{
     color: #0ef;
-    text-shadow: 0 0 10px #0ef;
+    text-shadow: 0 0 20px #0ef;
     font-weight: 600;
     font-size: 9rem;
-    margin: 3%;
+    margin-bottom: 6%;
+}
+
+.errorn h1:hover{
+    text-shadow: 0 0 40px #0ef;
 }
 
 .errorn h2{
     color: hsl(317, 100%, 54%);
+    /* color: #F6FA70; */
     font-size: 3rem;
     text-shadow: 0 0 .5em hsl(317, 100%, 54%);
+}
+
+.errorn h2:hover{
+    text-shadow: 0 0 1em hsl(317, 100%, 54%);
 }

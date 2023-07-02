@@ -88,8 +88,9 @@ exports.dashboard = async (req, res) => {
     }
 
    //new logic for the tasks upcomig and completed tasks;
-   
-  res.render('dashboard', { user: x});
+   let x = JSON.stringify(user);
+    console.log(x);
+  res.render('dashboard', { puser: x});
     return res.status(200);
   } 
   catch (error){
@@ -193,8 +194,9 @@ exports.updateTaskpage = async (req, res) => {
     }
 
     // Update the task content0
-
-    res.render('edittask', {name : taskToUpdate.name, category: taskToUpdate.category , deadline: taskToUpdate.deadline });
+    let x = JSON.stringify(user);
+    console.log(x);
+    res.render('edittask', {name : taskToUpdate.name, category: taskToUpdate.category , deadline: taskToUpdate.deadline,puser : x });
     return res.status(200);
   } catch (error) {
     console.error(error);

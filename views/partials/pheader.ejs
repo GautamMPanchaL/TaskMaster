@@ -7,7 +7,7 @@
 
     <!-- css-linking -->
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/pstyles.css">
 
     <!-- fonts -->
 
@@ -56,8 +56,8 @@
     <title>Task Master</title>
 </head>
 
-<body style="background-color: black;">
-    <nav class="navbar-custom navbar sticky-top navbar-expand-lg">
+<body style="background-color: black; margin-left: 300px;">
+    <!-- <nav class="navbar-custom navbar sticky-top navbar-expand-lg">
         <a class="navbar-brand" href="/" style="padding-left: 1%;">Task Master</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,4 +89,57 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
+    <div class="pcontainer">
+        <div class="pnavigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title" style="    color: rgb(0, 0, 0);text-shadow: 0 0 10px rgb(0, 0, 0);"><h1>Task Master</h1></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/user/profile">
+                        <span class="icon"><i class="fa-regular fa-id-badge fticon"></i></span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard">
+                        <span class="icon"><i class="fa-solid fa-table-columns fticon"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/insertnew">
+                        <span class="icon"><i class="fa-solid fa-plus fticon"></i></span>
+                        <span class="title">Add Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/updatetask">
+                        <span class="icon"><i class="fa-solid fa-plus-minus fticon"></i></span>
+                        <span class="title">Update Tasks</span>
+                    </a>
+                </li>
+                <li><a href="#"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket fticon"></i></span>
+                        <span class="title">Sign Out</span>
+                        <form id="logout-form" method="POST" action="/logout" style="display: none;">
+                            <!-- Add any additional hidden form fields if needed -->
+                        </form>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- main -->
+        <div class="pmain">
+            <div class="ptopbar">
+                <div class="ptoggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </div>

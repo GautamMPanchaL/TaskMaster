@@ -1,0 +1,293 @@
+.main{
+    padding-top: 5%;
+}
+
+body{
+    overflow-x: hidden;
+    transition: .5s;
+}
+
+body.active{
+    margin-left: 80px !important;
+}
+
+.pcontainer{
+    position: relative;
+    width: 100%; 
+    margin: 0%;
+    padding: 0%;
+}
+
+.pnavigation{
+    position: fixed;
+    height: 100%;
+    z-index: 1;
+    /* padding-top: 5%; */
+    left: 0;
+    top: 0;
+    width: 300px;
+    background: #c8c3c3;
+    /* border-left: 10px solid var(--blue); */
+    transition: 0.5s;
+    overflow-x: hidden;
+    padding-top: 15px;
+}
+
+.pnavigation.active{
+    width: 80px;
+}
+
+/* .pnavigation.active .icon{
+    width: 70px;
+} */
+
+.pnavigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px;
+    padding-left: 0;
+}
+
+.pnavigation ul li{
+    position: relative;
+    /* width: 100%; */
+    /* margin-bottom: 30px; */
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin: 20% 0;
+}
+.pnavigation ul li:hover,
+.pnavigation ul li.hovered{
+    background: #000000;
+    /* width: 100%; */
+}
+
+.pnavigation ul li:nth-child(1){
+    margin-bottom: 40%;
+    margin-top: 0;
+    pointer-events: none;
+}
+
+.pnavigation ul li:last-child{
+    margin-top: 40%;
+}
+
+.pnavigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #000000;
+}
+.pnavigation ul li:hover a,
+.pnavigation ul li.hovered a{
+    /* color: #000000; */
+    /* color: #0ef;
+    text-shadow: 0 0 10px #0ef; */
+    color: hsl(317, 100%, 54%);
+    text-shadow:  0 0 10px hsl(317, 100%, 54%);
+}
+
+.pnavigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-height: 60px;
+    height: 60px;
+    /* line-height: 60px; */
+    text-align: center;
+    width: 70px;
+}
+
+.pnavigation ul li a .icon i{
+    font-size: 2em;
+    /* color: #0ef;
+    text-shadow: 0 0 10px #0ef; */
+}
+
+.pnavigation ul li a .icon .fticon{
+    line-height: 60px;
+    /* padding-left: 20px; */
+}
+
+.pnavigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    /* left : 70px */
+    /* color: #ffffff; */
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .pnavigation {
+        /* background-color: rgb(255, 0, 0); */
+        width: 300px;
+    }
+}
+
+/* outside */
+.pnavigation.active ul li:hover a::before,
+.pnavigation.active ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 210px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #000000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.pnavigation.active ul li:hover a::after,
+.pnavigation.active ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 210px;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #000000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+
+
+
+.pnavigation ul li:hover a::before,
+.pnavigation ul li.hovered a::before{
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #000000;
+    pointer-events: none;
+    transition: .5s;
+}
+.pnavigation ul li:hover a::after,
+.pnavigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #000000;
+    pointer-events: none;
+    transition: .5s;
+}
+
+/* main */
+
+.pmain{
+    /* position: absolute; */
+    /* min-height: 100vh; */
+    /* background: var(--white); */
+    transition: 0.5s;
+}
+
+.ptopbar{
+    /* width: 100%; */
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    margin-top: 15px;
+
+}
+
+.ptoggle{
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    /* background: #0ef; */
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
+
+.ptoggle:hover{
+    text-shadow: 0 0 20px #0ef;
+}
+
+/* .user{
+    position: relative;
+    background-color: #0ef;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+    width: 150px;
+    height: 60px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+} */
+
+/* .user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+} */
+
+#profile{
+    position: relative;
+}
+
+/* footer */
+
+.ficon {
+    color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+}
+
+.fa-2xl:hover {
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
+}
+
+#footer {
+    background: #000000;
+    text-align: center;
+    padding: 3% 3%;
+}
+
+#footer .p {
+    color: beige;
+}
+
+.fa-2xl {
+    color: white;
+    text-align: center;
+    margin: 5%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.title h1{
+    font-family: 'Dancing Script',Cursive;
+}

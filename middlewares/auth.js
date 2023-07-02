@@ -12,10 +12,8 @@ exports.isAuthentic = (req, res, next)=>{
         const token =  req.cookies.TaskMaster;
         console.log(req.cookies.TaskMaster);
         if(!token){
-            return res.status(401).json({
-                success:false,
-                message: "Token missing"
-            });
+            res.render("error", {error:401, field:"Token missing"});
+            return res.status(401);
         }
         
         try{
@@ -25,18 +23,14 @@ exports.isAuthentic = (req, res, next)=>{
             req.user = decoded;
         }
         catch(err){
-            return res.status(401).json({
-                success:false,
-                message: "Invalid token"
-            });
+            res.render("error", {error:401, field:"Invalid token"});
+            return res.status(401);
         }
         next();
     }
     catch(err){
-        return res.status(401).json({
-                success:false,
-                message: "something went wrong.."
-            });
+        res.render("error", {error:401, field:"something went wrong.."});
+            return res.status(401);
     }
 }
 

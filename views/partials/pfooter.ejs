@@ -10,15 +10,32 @@
 
 <!-- common-javascripts -->
 <script>
-    function redirectToLoginPage() {
-        // Redirect the user to the login page
-        window.location.href = '/login';
+    let list = document.querySelectorAll('.pnavigation li');
+    function activatelink(){
+        list.forEach((item) =>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered');
     }
+    list.forEach((item)=>
+    item.addEventListener('mouseover',activatelink));
 
-    function redirectToRegisterPage() {
-        // Redirect the user to the register page
-        window.location.href = '/signup';
+    let toggle = document.querySelector('.ptoggle');
+    let navigation = document.querySelector('.pnavigation');
+    let body = document.querySelector('body');
+
+    toggle.onclick = function(){
+        navigation.classList.toggle('active');
+        body.classList.toggle('active');
     }
+    let str = '<%=puser%>';
+        //console.log(str);
+    let str2 = str.replace(/&#34;/gi, '\"');
+        // console.log(str2);
+    const uobj = JSON.parse(str2);
+    console.log(uobj);
+    // document.getElementById('pemail').innerHTML = "<h2> " + uobj.email +" </h2>";
+    
+
 </script>
 <script src="/javascript/script.js"></script>
 </body>
