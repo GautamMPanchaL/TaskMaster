@@ -48,6 +48,6 @@ router.post("/dashboard/insertnew",isAuthentic, insertnew);
 
 router.get("/dashboard/updatetask", isAuthentic, updateTaskpage);
 
-router.get("/dashboard/updatetask", isAuthentic, updateTask);
+router.post("/dashboard/updatetask", isAuthentic, updateTask);
 
 module.exports = router;

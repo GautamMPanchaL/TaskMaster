@@ -90,6 +90,7 @@ exports.dashboard = async (req, res) => {
    //new logic for the tasks upcomig and completed tasks;
    let x = JSON.stringify(user);
     console.log(x);
+    console.log("In Dashboard");
   res.render('dashboard', { puser: x});
     return res.status(200);
   } 
@@ -107,7 +108,7 @@ exports.addnewTask = async (req, res) => {
 
   console.log("on add task page");
   console.log(req.body);
-  const token = req.cookies.MoneyMaster;
+  const token = req.cookies.TaskMaster;
   const decodedToken = jwt.verify(token, "process.env.JWT_SECRET");
   const userId = decodedToken.id;
   try {
@@ -122,7 +123,6 @@ exports.addnewTask = async (req, res) => {
 
     let x = JSON.stringify(user);
     console.log(x);
-   
     res.render('addtask',{puser : x});
     return res.status(200);
   }
@@ -161,8 +161,10 @@ exports.updateTask = async (req, res) => {
 
     // Save the updated user document
     await user.save();
-
-    res.render('dashboard', {});
+    let x = JSON.stringify(user);
+    console.log(x);
+    console.log("after update");
+    res.render('dashboard', {puser : x});
     return res.status(200);
   } catch (error) {
     console.error(error);
@@ -196,7 +198,8 @@ exports.updateTaskpage = async (req, res) => {
     // Update the task content0
     let x = JSON.stringify(user);
     console.log(x);
-    res.render('edittask', {name : taskToUpdate.name, category: taskToUpdate.category , deadline: taskToUpdate.deadline,puser : x });
+    console.log("User Edit");
+    res.render('edittask', {name : taskToUpdate.name, category: taskToUpdate.category , deadline: taskToUpdate.deadline, puser : x });
     return res.status(200);
   } catch (error) {
     console.error(error);

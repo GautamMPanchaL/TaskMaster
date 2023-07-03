@@ -1,39 +1,6 @@
-<%- include("partials/header") -%>
-
-<h3>Welcome to Task Master, <%= mailid %>
-</h3>
-<a class="button" href="/<%= mailid %>/addtask">Add new Task</a>
-<h1 class="TaskPage">All Tasks</h1>
-    <% tasks.forEach(function(task) { %>
-        <li style="list-style-type: none">
-            <div class="boxtask">
-            <div id="task"> <%= task.name %> <br> <%= task.category%> <br> Deadline:<%= task.deadline.toLocaleString() %></div>
-            <div class="countdown-timer" data-deadline="<%= task.deadline %>"></div>
-                <br> <br>                   
-                    <form action="/<%= mailid %>/tasks/<%= task._id %>" method="POST" style="display:inline">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="GET" style="display:inline" >
-                            <button type="submit">Edit</button>
-                    </form>
-                <br> <br>
-            </div>
-        </li>
-        <% }); %>
-
-        <div class="chart">
-            <% tasks.forEach(task=> { %>
-                <div class="bar" style="width: <%= calculateBarWidth(task.deadline) %>;">
-                    <div class="name">
-                        <%= task.name %>
-                    </div>
-                    <div class="deadline">
-                        <%= task.deadline.toLocaleDateString() %>
-                    </div>
-                </div>
-                <% }) %>
-        </div>
+<%- include("partials/pheader") -%>
 
 
-<a class="button" href="/logout" role="button">Log Out</a>
-<%- include("partials/footer") -%>
+
+<!-- <a class="button" href="/logout" role="button">Log Out</a> -->
+<%- include("partials/pfooter") -%>
