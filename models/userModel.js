@@ -27,7 +27,8 @@ const userSchema = new mongoose.Schema({
   completedTasks: [{
     name: String,
     category: String,
-    deadline: Date
+    deadline: Date,
+    dateCompleted:Date
   }]
 });
 
