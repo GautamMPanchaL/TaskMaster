@@ -1,9 +1,113 @@
 <%-include("partials/pheader")-%>
+<link rel="stylesheet" href="/css/profile.css">
 <section id="profile">
 
-    <h1>
-        profile
-    </h1>
-
+    <div class="cardBox">
+        <div class="card tr">
+            <div class="pcard">
+                <div id="username">
+                    <h3> Username :</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card tr">
+            <div class="pcard">
+                <div id="email">
+                    <h3> Email : </h3>
+                </div>
+            </div>
+        </div>
+        <div class="card tr">
+            <div class="pcard">
+                <div id="balance">
+                    <h3> Total Tasks : </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardBox">
+        <div class="card er">
+            <div class="ncard">
+                <div class="numbers" id="ern">
+                    0
+                </div>
+                <div class="cardName">
+                    Upcoming Tasks
+                </div>
+            </div>
+            <div class="iconBox">
+                <ion-icon name="cash-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="card tr">
+            <div class="ncard">
+                <div class="numbers" id="trn">
+                    0
+                </div>
+                <div class="cardName">
+                    Completed Tasks
+                </div>
+            </div>
+            <div class="iconBox">
+                <ion-icon name="clipboard-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="card ex">
+            <div class="ncard">
+                <div class="numbers" id="exn">
+                    0
+                </div>
+                <div class="cardName">
+                    Late Tasks
+                </div>
+            </div>
+            <div class="iconBox">
+                <ion-icon name="cash-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <div class="graphBox">
+        <!-- <h2>Text</h2> -->
+    
+        <div class="box">
+            <h2>Tasks</h2>
+            <br>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
 </section>
+<script>
+    let ob = '<%=puser%>';
+    ob = ob.replace(/&#34;/gi, '\"');
+    const obj = JSON.parse(ob);
+    $("#username").html("<h3>Username : " + obj.username + "</h3>");
+    $("#email").html("<h3>Email : " + obj.email + "</h3>");
+    let total = (parseInt(obj.completedTasks.length) + parseInt(obj.upcomingtasks.length));
+    $("#balance").html("<h3> Total Tasks : " + (parseInt(obj.completedTasks.length)+parseInt(obj.upcomingtasks.length)) + "</h3>");
+    let labelx = ['Upcoming Tasks','Completed Tasks','Late Tasks'];
+
+    
+
+
+
+    console.log(obj.upcomingtasks[0]);
+
+    let dta = [obj.upcomingtasks.length, obj.completedTasks.length,0];
+    const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+
+                labels: labelx,
+                datasets: [{
+                    label: 'Task Master',
+                    data: dta,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+</script>
 <%-include("partials/pfooter")-%>

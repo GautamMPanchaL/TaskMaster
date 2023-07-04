@@ -117,4 +117,3 @@ exports.login = async (req, res) => {
 module.exports.logout = (req, res) => {
     res.clearCookie("TaskMaster").status(204).redirect("/login");
 };
-

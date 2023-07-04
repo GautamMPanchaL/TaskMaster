@@ -1,0 +1,195 @@
+.rangep {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5%;
+}
+
+.rangef {
+    position: relative;
+    padding: 2%;
+    background: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.rangef label {
+    width: 50%;
+    /* align-items: flex-start; */
+}
+
+.rangef input,
+.rangef select {
+    border-radius: 20px;
+}
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 3%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    /* cursor: pointer; */
+}
+
+.cardBox .ncard {
+    width: 50%;
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName {
+    color: var(--black);
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBox {
+    font-size: 5rem;
+    color: #6c706d;
+    width: 50%;
+}
+
+.cardBox .er:hover {
+    background: #078f27;
+}
+
+.cardBox .tr:hover {
+    background: var(--blue);
+}
+
+.cardBox .ex:hover {
+    background: var(--red);
+}
+
+.cardBox .card:hover .iconBox,
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName {
+    color: var(--white);
+}
+
+/* charts */
+
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    margin-top: 2%;
+}
+
+.graphBox .box {
+    position: relative;
+    background: white;
+    padding: 2%;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    min-height: 200px;
+}
+
+
+
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    /* grid-template-columns: 2fr 1fr; */
+    grid-gap: 30px;
+    margin-top: 2%;
+}
+
+.details .recent {
+    position: relative;
+    width: 100%;
+    display: grid;
+    background: var(--white);
+    padding: 2%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3%;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: #ff4c68;
+}
+
+.details .table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details .table thead th {
+    font-weight: 600;
+}
+
+.details .recent table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.details .recent table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recent table tr td {
+    padding: 10px;
+}
+
+.details .recent table tbody tr.earn:hover {
+    background: #078f27;
+    color: var(--white);
+}
+
+.details .recent table tbody tr.expn:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+@media (max-width : 990px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .cardBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+}

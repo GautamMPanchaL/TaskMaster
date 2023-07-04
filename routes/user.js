@@ -6,7 +6,7 @@ const app = express();
 app.use(cookieParser());
 
 const {login , signup ,logout} = require("../controllers/authentication");
-const { insertnew, profile, dashboard, addnewTask, updateTaskpage, updateTask, deleteTask: deletetask, completeTask } = require("../controllers/userController");
+const { insertnew, profile, dashboard, addnewTask, updateTaskpage, updateTask, deleteTask, completeTask ,completePage } = require("../controllers/userController");
 const {isAuthentic} = require("../middlewares/auth");
 
 router.get("/",(req,res)=>{
@@ -50,8 +50,10 @@ router.get("/dashboard/updatetask", isAuthentic, updateTaskpage);
 
 router.post("/dashboard/updatetask", isAuthentic, updateTask);
 // delete task from the upcoming tasks
-router.delete("/dashboard", isAuthentic, deleteTask);
+router.post("/dashboard/delete", isAuthentic, deleteTask);
 // complete Task 
 router.post("/dashboard/completed", isAuthentic, completeTask);
+
+router.get("/dashboard/completePage",isAuthentic, completePage);
 
 module.exports = router;

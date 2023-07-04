@@ -1,0 +1,101 @@
+#profile{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    /* color: #ce1313; */
+}
+
+.pcard {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    text-align: center;
+    align-items: center;
+}
+
+.pcard h3:hover {
+    color: var(--white);
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 3%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    /* cursor: pointer; */
+}
+
+.cardBox .ncard {
+    width: 50%;
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName {
+    color: var(--black);
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBox {
+    font-size: 5rem;
+    color: #6c706d;
+    width: 50%;
+}
+
+.cardBox .er:hover {
+    background: #078f27;
+}
+
+.cardBox .tr:hover {
+    background: var(--blue);
+}
+
+.cardBox .ex:hover {
+    background: #ff0000;
+}
+
+.cardBox .card:hover .iconBox,
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName {
+    color: var(--white);
+}
+
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin-top: 2%;
+    margin-left: 25%;
+}
+
+.graphBox .box {
+    position: relative;
+    background: white;
+    padding: 2%;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    /* max-height: 850px; */
+}

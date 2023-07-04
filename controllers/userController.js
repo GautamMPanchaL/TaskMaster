@@ -13,10 +13,16 @@ exports.insertnew = async (req, res) => {
   const decodedToken = jwt.verify(token, "process.env.JWT_SECRET");
   const userId = decodedToken.id;
   console.log(req.body);
-  let {name , category, deadline, additional} = req.body;
-  if(category === "Other")
-    category = additional;
+  console.log("in insert new");
+  // let {name,category,deadline} = req.body;
+  let name = req.body.nameoftask;
+  let category = req.body.category;
+  let deadline = req.body.endoftask;
+  // console.log(name + category + deadline);
+  // if(category === "Other")
+  //   category = additional;
   const trimed = category.trim();
+  console.log(trimed);
   try {
     // finding user
     const user = await User.findById(userId);
@@ -59,8 +65,8 @@ exports.profile = async (req, res) => {
     }
 
     console.log("in profile");
-    console.log(user);
-
+    console.log(user.upcomingtasks.length);
+    console.log(user.completedTasks.length);
     let x = JSON.stringify(user);
     console.log(x);
 
@@ -229,7 +235,10 @@ try {
   }
   user.upcomingTasks.pull(taskId);
   await user.save();
-  res.render("dashboard", { message: "Task deleted successfully" });
+  let x = JSON.stringify(user);
+    console.log(x);
+    console.log("Delete Task");
+  res.render("dashboard", { message: "Task deleted successfully" ,puser : x});
   return res.status(200);
 } catch (error) {
   console.error(error);
@@ -269,13 +278,42 @@ exports.completeTask = async (req, res) => {
     };
     user.completedTasks.push(completedTask);
     await user.save();
-    res.render("dashboard", { message: "Task deleted successfully" });
+    let x = JSON.stringify(user);
+    console.log(x);
+    console.log("Complete Task");
+    res.render("dashboard", {message: "Task Completed successfully" , puser : x });
     return res.status(200);
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error);
     res.render("error", {
       error: 500,
-      field: "Internal Server Error, failed to delete the task"
+      field: "Internal Server Error, failed to complete the task"
+    });
+    return res.status(500);
+  }
+};
+
+exports.completePage = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      res.render("error", { error: 404, field: "User not found" });
+      return res.status(404);
+    }
+    let x = JSON.stringify(user);
+    console.log(x);
+    console.log("Complete Page");
+    res.render("completetask", {puser : x });
+    return res.status(200);
+  } 
+  catch (error) {
+    console.error(error);
+    res.render("error", {
+      error: 500,
+      field: "Internal Server Error, failed to complete the task"
     });
     return res.status(500);
   }
