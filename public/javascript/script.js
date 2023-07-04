@@ -32,15 +32,3 @@ countdownTimers.forEach(timer => {
   }, 1000);
 });
 
-
-function calculateBarWidth(deadline) {
-  const currentDate = new Date();
-  const deadlineDate = new Date(deadline);
-  const totalDays = Math.ceil((deadlineDate - currentDate) / (1000 * 60 * 60 * 24)); // Calculate the difference in days
-  const maxWidth = 300; // Set the maximum width for the bar
-  const minWidth = 100; // Set the minimum width for the bar
-  const width = (totalDays / 30) * (maxWidth - minWidth) + minWidth; // Adjust the calculation based on your preference
-
-  return `${width}px`; // Return the calculated width with "px" unit
-}
-

@@ -99,9 +99,11 @@
     width: 100%;
     padding: 2%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 30px;
+    /* grid-template-columns: 1fr 1fr; */
+    /* margin-left: 25%; */
+    /* grid-gap: 30px; */
     margin-top: 2%;
+    text-align: center;
 }
 
 .graphBox .box {
@@ -131,7 +133,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    background:  #ffffff;
+    background: var(--white);
     padding: 2%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -146,13 +148,12 @@
 
 .cardHeader h2 {
     font-weight: 600;
-    color: #ff0026;
+    color: #ff4c68;
 }
 
 .details .table {
     width: 100%;
     border-collapse: collapse;
-    
 }
 
 .details .table thead th {
@@ -171,11 +172,6 @@
 
 .details .recent table tr td {
     padding: 10px;
-}
-
-.details .recent table tbody tr{
-    border-radius: 5px !important;
-    margin-top: 10px !important;
 }
 
 .details .recent table tbody tr.earn:hover {
@@ -200,17 +196,12 @@
     }
 }
 
-.headx {
-    position: relative;
+.headx{
     text-align: center;
-    color: #008cff;
-    text-shadow: 0 0 10px #0044ff;
-    /* justify-content: center; */
-    /* align-items: center; */
-    margin-left: auto;
-    margin-right: auto;
+    color : #06da1f;
+    text-shadow: 0 0 10px #02c435;
 }
 
-.headx h1:hover {
-    text-shadow: 0 0 20px #006eff;
+.headx h1:hover{
+    text-shadow: 0 0 20px #02c435;
 }

@@ -99,3 +99,13 @@
     border-radius: 20px;
     /* max-height: 850px; */
 }
+
+.headx {
+    text-align: center;
+    color: #00f7ff;
+    text-shadow: 0 0 10px #00f7ff;
+}
+
+.headx h1:hover {
+    text-shadow: 0 0 20px #00f7ff;
+}

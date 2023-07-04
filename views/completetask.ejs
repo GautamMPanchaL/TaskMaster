@@ -1,3 +1,48 @@
 <%-include("partials/pheader")-%>
-    <h1>Complete</h1>
+<link rel="stylesheet" href="/css/complete.css">
+    <div class="details" id="complete">
+        <div class="headx">
+            <h1> Completed Tasks </h1>
+        </div>
+        <div class="graphBox">
+            <div class="box">
+                <h2>Dates completed on : </h2>
+                <canvas id="myDaily"></canvas>
+            </div>
+        </div>
+        <div class="recent">
+            <div class="cardHeader">
+                <h2>Completed Tasks</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Deadline</th>
+                        <th>Date Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <br>
+                    <% for (var i=0; i < Math.min(completex.length,30); i++) { %>
+                        <tr class="earn">
+                            <td>
+                                <%=completex[i].name %>
+                            </td>
+                            <td>
+                                <%=completex[i].category %>
+                            </td>
+                            <td>
+                                <%=completex[i].deadline %>
+                            </td>
+                            <td>
+                                <%=completex[i].dateCompleted %>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <%-include("partials/pfooter")-%>

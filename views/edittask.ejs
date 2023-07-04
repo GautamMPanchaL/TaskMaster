@@ -1,16 +1,58 @@
 <%- include("partials/pheader") -%>
+    <link rel="stylesheet" href="/css/insert.css">
 
-<h1 class="TaskPage">Edit Task</h1>
-
-<form action="/<%= mailid %>/tasks/<%= task._id %>/edit" method="POST">
-    <div class="boxedit">
-    <label for="taskname">Task Name:</label>
-    <input type="text" id="taskname" name="taskname" value="<%= task.name %>">
-    <br><br>
-    <label for="taskdeadline">Deadline:</label>
-    <input type="datetime-local" id="taskdeadline" name="taskdeadline"
-        value="<%= task.deadline.toISOString().slice(0, -8) %>">
+    <!-- <form action="" method="post">
+        <input type="text" name="nameoftask" id="" placeholder="Enter the Task">
+        <input type="text" name="category" id="" placeholder="Enter Category">
+        <input type="datetime-local" id="" name="endoftask">
+        <br><br>
+        <button type="submit">ADD TASK</button>
+    </form> -->
+    <div class="headx">
+        <h1> Update Task </h1>
     </div>
-    <button type="submit">Update</button>
-</form>
+    <br><br>
+    <form action="/dashboard/updatetask" method="POST">
+        <label class="lform" for="nameoftask">Enter the Task : </label>
+        <input class="rform" type="text" id="nameoftask" name="nameoftask" required readonly value="<%=tname%>"
+            autocomplete="false"><br><br>
+        <label class="lform" for="category">Category</label>
+        <select class="rform" id="category" name="category">
+            <option name="Education" selected>Education</option>
+            <option name="Personal">Personal</option>
+            <option name="Bills">Bills</option>
+            <option name="Entertainment">Entertainment</option>
+            <option name="Work">Work</option>
+            <option name="Other">Other</option>
+        </select><br><br>
+        <div id="additional-field" class="additional-field" hidden>
+            <label class="lform" for="additional">Specify:</label>
+            <input class="rform" type="text" id="additional" name="additional">
+        </div>
+        <br>
+        <label class="lform" for="endoftask">Date:</label>
+        <input class="rform" type="datetime-local" id="endoftask" name="endoftask" required
+            autocomplete="false"><br><br>
+
+        <!-- <label for="transaction-option">Transaction Option:</label> -->
+        <br>
+        <input type="submit" class="btn btn-primary button" value="Update">
+
+    </form>
+
+    <script>
+        $(function () {
+            $("#category").change(function () {
+                let topt = $("#category").val();
+                console.log("happy");
+                console.log(topt);
+                if (topt === "Other") {
+                    $("#additional-field").removeAttr("hidden");
+                }
+                if (topt != "Other") {
+                    $("#additional-field").attr("hidden", true);
+                }
+            });
+        });
+    </script>
 <%- include("partials/pfooter") -%>

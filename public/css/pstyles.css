@@ -265,7 +265,7 @@ body.active{
 
 .fa-2xl:hover {
     color: #0ef;
-    text-shadow: 0 0 10px #0ef;
+    text-shadow: 0 0 20px #0ef;
 }
 
 #footer {
@@ -279,7 +279,8 @@ body.active{
 }
 
 .fa-2xl {
-    color: white;
+    color: #0ef;
+    text-shadow: 0 0 10px #0ef;
     text-align: center;
     margin: 5%;
 }

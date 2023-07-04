@@ -19,9 +19,10 @@ exports.insertnew = async (req, res) => {
   let category = req.body.category;
   let deadline = req.body.endoftask;
   // console.log(name + category + deadline);
-  // if(category === "Other")
-  //   category = additional;
+  if(category === "Other")
+    category = req.body.additional;
   const trimed = category.trim();
+  // const trimed = "shashwat";
   console.log(trimed);
   try {
     // finding user
@@ -31,7 +32,7 @@ exports.insertnew = async (req, res) => {
             return res.status(400);
     }
     // Add the transaction to the user's transactions array
-    user.upcomingtasks.unshift({deadline, name, trimed});
+    user.upcomingtasks.unshift({deadline, name, category});
     // update the money
 
     const updatedUser = await user.save();
@@ -97,7 +98,27 @@ exports.dashboard = async (req, res) => {
    let x = JSON.stringify(user);
     console.log(x);
     console.log("In Dashboard");
-  res.render('dashboard', { puser: x});
+    let latx = [],upx = [],latnx = [],upnx = [];
+    let st12,st22;
+    const now = new Date().getTime();
+    for(let i = 0;i<user.upcomingtasks.length;i++){
+        if(new Date(user.upcomingtasks[i].deadline)-now<0){
+            st12 = user.upcomingtasks[i].deadline;
+            st12 = st12.toString();
+            // console.log(st12);
+            latx.push(user.upcomingtasks[i]);
+            latnx.push({first : st12.substr(0,15),second : st12.substr(16,8)});
+        }
+        else{
+            st22 = user.upcomingtasks[i].deadline;
+            st22 = st22.toString();
+            // console.log(st22);
+            upx.push(user.upcomingtasks[i]);
+            upnx.push({first : st22.substr(0,15),second : st22.substr(16,8)});
+        }
+    }
+
+  res.render('dashboard', { puser: x, upx : upx , latx : latx,upnx : upnx,latnx : latnx});
     return res.status(200);
   } 
   catch (error){
@@ -305,8 +326,12 @@ exports.completePage = async (req, res) => {
     }
     let x = JSON.stringify(user);
     console.log(x);
+    let completex = user.completedTasks;
+    completex = completex.sort(function (x,y){
+          return new Date(y.date)-new Date(x.date);
+        });
     console.log("Complete Page");
-    res.render("completetask", {puser : x });
+    res.render("completetask", {puser : x , completex : completex});
     return res.status(200);
   } 
   catch (error) {

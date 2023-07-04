@@ -1,11 +1,56 @@
 <%-include("partials/pheader")-%>
+<link rel="stylesheet" href="/css/insert.css">
 
-    <form action="" method="post">
+    <!-- <form action="" method="post">
         <input type="text" name="nameoftask" id="" placeholder="Enter the Task">
         <input type="text" name="category" id="" placeholder="Enter Category">
         <input type="datetime-local" id="" name="endoftask">
         <br><br>
         <button type="submit">ADD TASK</button>
-    </form>
-
+    </form> -->
+    <div class="headx">
+        <h1> Add Task </h1>
+    </div>
+    <br><br>
+    <form action="/dashboard/insertnew" method="POST">
+            <label class="lform" for="nameoftask">Enter the Task : </label>
+            <input class="rform" type="text" id="nameoftask" name="nameoftask" required autofill="off" autocomplete="false"><br><br>
+            <label class="lform" for="category">Category</label>
+            <select class="rform" id="category" name="category">
+                <option name="Education" selected>Education</option>
+                <option name="Personal">Personal</option>
+                <option name="Bills">Bills</option>
+                <option name="Entertainment">Entertainment</option>
+                <option name="Work">Work</option>
+                <option name="Other">Other</option>
+            </select><br><br>
+            <div id="additional-field" class="additional-field" hidden>
+                <label class="lform" for="additional">Specify:</label>
+                <input class="rform" type="text" id="additional" name="additional">
+            </div>
+            <br>
+            <label class="lform" for="endoftask">Date:</label>
+            <input class="rform" type="datetime-local" id="endoftask" name="endoftask" required autocomplete="false"><br><br>
+            
+            <!-- <label for="transaction-option">Transaction Option:</label> -->
+            <br>
+            <input type="submit" class="btn btn-primary button" value="Submit">
+            
+        </form>
+    
+        <script>
+            $(function () {
+                $("#category").change(function () {
+                    let topt = $("#category").val();
+                    console.log("happy");
+                    console.log(topt);
+                    if (topt === "Other") {
+                        $("#additional-field").removeAttr("hidden");
+                    }
+                    if (topt != "Other") {
+                        $("#additional-field").attr("hidden", true);
+                    }
+                });
+            });
+        </script>
 <%-include("partials/pfooter")-%>

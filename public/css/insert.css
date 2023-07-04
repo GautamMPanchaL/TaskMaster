@@ -1,0 +1,64 @@
+form {
+    text-align: center;
+    padding: 3%;
+    position: relative;
+    /* display: flex; */
+    width: 60%;
+    /* grid-template-columns: 2,1fr; */
+    background: linear-gradient(45deg, #0080ff, #ff0080);
+    /* box-shadow: 0 7px 25px rgba(255, 255, 255, 0.08); */
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    /* background: var(--green); */
+    /* background: var(--red); */
+}
+
+form:hover{
+    text-shadow: 0 0 10px linear-gradient(45deg, #0080ff, #ff0080);
+}
+
+.lform {
+    width: 25%;
+    padding: 2%;
+    font-weight: 600;
+    color: hsl(0, 0%, 0%);
+    text-shadow: 0 0 10px hsl(0, 0%, 100%);
+}
+
+.rform {
+    /* padding: 2%; */
+    border-radius: 20px;
+    width: 25%;
+    color: black;
+}
+
+.cre {
+    background: var(--green);
+}
+
+.deb {
+    background: var(--red);
+}
+
+.button{
+    border-radius: 5px !important;
+    /* color: #ffffff; */
+    font-weight: 600 !important;
+    border: 2px solid black !important;
+}
+
+.headx {
+    position: relative;
+    text-align: center;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headx h1:hover {
+    text-shadow: 0 0 20px #ff00ff;
+}

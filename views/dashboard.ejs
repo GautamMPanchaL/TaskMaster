@@ -1,5 +1,114 @@
 <%- include("partials/pheader") -%>
-
+<link rel="stylesheet" href="/css/dashboard.css">
+<section class="details">
+    <div class="headx">
+        <h1> Dashboard </h1>
+    </div>
+    <div class="recent">
+        <div class="cardHeader">
+            <h2>Upcoming Tasks</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Deadline Date</th>
+                    <th>Deadline Time</th>
+                    <th>Timer</th>
+                    <th>Complete</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <br>
+                <% for (var i=0; i < upx.length; i++) { %>
+                    <div class="uprow">
+                        <tr class="earn">
+                            <td>
+                                <%=upx[i].name %>
+                            </td>
+                            <td>
+                                <%=upx[i].category %>
+                            </td>
+                            <td>
+                                <%=upnx[i].first %>
+                            </td>
+                            <td>
+                                <%=upnx[i].second %>
+                            </td>
+                            <td>
+                                <div class="countdown-timer" data-deadline="<%= upx[i].deadline %>"></div>
+                            </td>
+                            <td>
+                                <button class="com" >Complete</button>
+                            </td>
+                            <td>
+                                <button class="upd" >Update</button>
+                            </td>
+                            <td>
+                                <button class="del" >Delete</button>
+                            </td>
+                        </tr>
+                    </div>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="recent">
+        <div class="cardHeader">
+            <h2>Late Tasks</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Deadline Date</th>
+                    <th>Deadline Time</th>
+                    <th>Timer</th>
+                    <th>Complete</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <br>
+                <% for (var i=0; i < latx.length; i++) { %>
+                    <div class="larow">
+                        <tr class="expn">
+                            <td>
+                                <%=latx[i].name %>
+                            </td>
+                            <td>
+                                <%=latx[i].category %>
+                            </td>
+                            <td>
+                                <%=latnx[i].first %>
+                            </td>
+                            <td>
+                                <%=latnx[i].second %>
+                            </td>
+                            <td>
+                                Deadline Passed
+                            </td>
+                            <td>
+                                <button>Complete</button>
+                            </td>
+                            <td>
+                                <button>Update</button>
+                            </td>
+                            <td>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </div>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 
 <!-- <a class="button" href="/logout" role="button">Log Out</a> -->

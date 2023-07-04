@@ -1,7 +1,9 @@
 <%-include("partials/pheader")-%>
 <link rel="stylesheet" href="/css/profile.css">
 <section id="profile">
-
+    <div class="headx">
+        <h1> Profile </h1>
+    </div>
     <div class="cardBox">
         <div class="card tr">
             <div class="pcard">
@@ -86,13 +88,24 @@
     $("#balance").html("<h3> Total Tasks : " + (parseInt(obj.completedTasks.length)+parseInt(obj.upcomingtasks.length)) + "</h3>");
     let labelx = ['Upcoming Tasks','Completed Tasks','Late Tasks'];
 
-    
+    let late = [];
+    let upx = [];
 
+    const now = new Date().getTime();
+    for(let i = 0;i<obj.upcomingtasks.length;i++){
+        if(new Date(obj.upcomingtasks[i].deadline)-now<0){
+            late.push(obj.upcomingtasks[i]);
+        }
+        else{
+            upx.push(obj.upcomingtasks[i]);
+        }
+    }
 
+    $("#ern").html("<h1>" + upx.length +"</h1>");
+    $("#trn").html("<h1>" + obj.completedTasks.length + "</h1>");
+    $("#exn").html("<h1>" + late.length + "</h1>");
 
-    console.log(obj.upcomingtasks[0]);
-
-    let dta = [obj.upcomingtasks.length, obj.completedTasks.length,0];
+    let dta = [upx.length, obj.completedTasks.length,late.length];
     const ctx = document.getElementById('myChart');
         new Chart(ctx, {
             type: 'pie',
