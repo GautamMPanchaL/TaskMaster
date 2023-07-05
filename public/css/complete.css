@@ -108,7 +108,8 @@
 
 .graphBox .box {
     position: relative;
-    background: white;
+    /* background: white; */
+    background: linear-gradient(45deg, #d0e1f3, #d4b7c6);
     padding: 2%;
     width: 100%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -133,7 +134,8 @@
     position: relative;
     width: 100%;
     display: grid;
-    background: var(--white);
+    /* background: var(--white); */
+    background: linear-gradient(45deg, #7dafe0, #da84af);
     padding: 2%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -148,7 +150,7 @@
 
 .cardHeader h2 {
     font-weight: 600;
-    color: #ff4c68;
+    color: #91192b;
 }
 
 .details .table {

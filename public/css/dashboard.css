@@ -131,10 +131,11 @@
     position: relative;
     width: 100%;
     display: grid;
-    background:  #ffffff;
+    /* background:  #ffffff; */
     padding: 2%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
+    background: linear-gradient(45deg, #7dafe0, #da84af);
 }
 
 .cardHeader {
@@ -146,7 +147,7 @@
 
 .cardHeader h2 {
     font-weight: 600;
-    color: #ff0026;
+    color: #c71631;
 }
 
 .details .table {
@@ -156,13 +157,14 @@
 }
 
 .details .table thead th {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .details .recent table tr {
     color: var(--black1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 20px;
+    text-align: center;
 }
 
 .details .recent table tr:last-child {
@@ -170,7 +172,8 @@
 }
 
 .details .recent table tr td {
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 0;
 }
 
 .details .recent table tbody tr{
@@ -213,4 +216,31 @@
 
 .headx h1:hover {
     text-shadow: 0 0 20px #006eff;
+}
+
+.cbutton{
+    margin-top: 1em;
+    border-radius: 10px;
+    border: 3px solid black;
+    color: black;
+    font-weight: 700;
+    background: #0edb3e;
+}
+
+.ubutton{
+    margin-top: 1em;
+    border-radius: 10px;
+    border: 3px solid black;
+    color: black;
+    font-weight: 700;
+    background: #fff200;
+}
+
+.dbutton{
+    margin-top: 1em;
+    border-radius: 10px;
+    border: 3px solid black;
+    color: black;
+    font-weight: 700;
+    background: #ff2a00;
 }

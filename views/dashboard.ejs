@@ -11,22 +11,21 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Deadline Date</th>
-                    <th>Deadline Time</th>
-                    <th>Timer</th>
-                    <th>Complete</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th style="padding-bottom: 30px !important;">Name</th>
+                    <th style="padding-bottom: 30px !important;">Category</th>
+                    <th style="padding-bottom: 30px !important;">Deadline Date</th>
+                    <th style="padding-bottom: 30px !important;">Deadline Time</th>
+                    <th style="padding-bottom: 30px !important;">Timer</th>
+                    <th style="padding-bottom: 30px !important;">Complete</th>
+                    <th style="padding-bottom: 30px !important;">Update</th>
+                    <th style="padding-bottom: 30px !important;">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <br>
                 <% for (var i=0; i < upx.length; i++) { %>
                     <div class="uprow">
                         <tr class="earn">
-                            <td>
+                            <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
                                 <%=upx[i].name %>
                             </td>
                             <td>
@@ -42,24 +41,21 @@
                                 <div class="countdown-timer" data-deadline="<%= upx[i].deadline %>"></div>
                             </td>
                             <td>
-                                <td>
-                                    <form style="padding: 0%;" action="/dashboard/completed" method="post">
-                                        <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
-                                        <button type="submit">Complete</button>
-                                    </form>
-                                </td>
-
+                                <form style="padding: 0%;" action="/dashboard/completed" method="post">
+                                    <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
+                                    <button type="submit" class="cbutton">Complete</button>
+                                </form>
                             </td>
                             <td>
                                 <form style="padding: 0%;" action="/dashboard/updatetask" method="post">
                                     <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
-                                    <button type="submit">Update</button>
+                                    <button type="submit" class="ubutton">Update</button>
                                 </form>
                             </td>
-                            <td>
+                            <td style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                                 <form style="padding: 0%;" action="/dashboard/delete" method="post">
                                     <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
-                                    <button type="submit">Delete</button>
+                                    <button type="submit" class="dbutton">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -75,22 +71,21 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Deadline Date</th>
-                    <th>Deadline Time</th>
-                    <th>Timer</th>
-                    <th>Completed</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th style="padding-bottom: 30px !important;">Name</th>
+                    <th style="padding-bottom: 30px !important;">Category</th>
+                    <th style="padding-bottom: 30px !important;">Deadline Date</th>
+                    <th style="padding-bottom: 30px !important;">Deadline Time</th>
+                    <th style="padding-bottom: 30px !important;">Timer</th>
+                    <th style="padding-bottom: 30px !important;">Completed</th>
+                    <th style="padding-bottom: 30px !important;">Update</th>
+                    <th style="padding-bottom: 30px !important;">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <br>
                 <% for (var i=0; i < latx.length; i++) { %>
                     <div class="larow">
                         <tr class="expn">
-                            <td>
+                            <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;"> 
                                 <%=latx[i].name %>
                             </td>
                             <td>
@@ -108,19 +103,19 @@
                             <td>
                                 <form style="padding: 0%;" action="/dashboard/completed" method="post">
                                     <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
-                                    <button type="submit">Complete</button>
+                                    <button type="submit" class="cbutton">Complete</button>
                                 </form>
                             </td>
                             <td>
                                 <form style="padding: 0%;" action="/dashboard/updatetask" method="post">
                                     <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
-                                    <button type="submit">Update</button>
+                                    <button type="submit" class="ubutton" >Update</button>
                                 </form>
                             </td>
-                            <td>
+                            <td style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding: auto;">
                                 <form style="padding: 0%;" action="/dashboard/delete" method="post">
                                     <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
-                                    <button type="submit">Delete</button>
+                                    <button type="submit" class="dbutton" >Delete</button>
                                 </form>
                             </td>
                         </tr>

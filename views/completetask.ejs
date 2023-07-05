@@ -19,8 +19,10 @@
                     <tr>
                         <th>Name</th>
                         <th>Category</th>
-                        <th>Deadline</th>
-                        <th>Date Completed</th>
+                        <th>Deadline Date</th>
+                        <th>Deadline Time</th>
+                        <th>Completed Date</th>
+                        <th>Completed Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,10 +36,16 @@
                                 <%=completex[i].category %>
                             </td>
                             <td>
-                                <%=completex[i].deadline %>
+                                <%=dx[i].date%>
                             </td>
                             <td>
-                                <%=completex[i].dateCompleted %>
+                                <%=dx[i].time%>
+                            </td>
+                            <td>
+                                <%=compx[i].date %>
+                            </td>
+                            <td>
+                                <%=compx[i].time %>
                             </td>
                         </tr>
                     <% } %>

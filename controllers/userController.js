@@ -349,8 +349,20 @@ exports.completePage = async (req, res) => {
     completex = completex.sort(function (x,y){
           return new Date(y.date)-new Date(x.date);
         });
+    let compx = [],dx = [];
+    let str;
+    for(let i = 0;i<completex.length;i++){
+      str = completex[i].deadline.toString();
+      dx.push({date : str.substr(0,15),time : str.substr(16,8)});
+      console.log("Date : ");
+      console.log(str);
+      str = completex[i].dateCompleted.toString();
+      console.log("Date : ");
+      console.log(str);
+      compx.push({date : str.substr(0,15),time : str.substr(16,8)});
+    }
     console.log("Complete Page");
-    res.render("completetask", {puser : x , completex : completex});
+    res.render("completetask", {puser : x , completex : completex ,compx : compx,dx : dx});
     return res.status(200);
   } 
   catch (error) {
