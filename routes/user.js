@@ -46,9 +46,9 @@ router.post("/dashboard/insertnew",isAuthentic, insertnew);
 
 // to view updated task pages
 
-router.get("/dashboard/updatetask", isAuthentic, updateTaskpage);
+router.post("/dashboard/updatetask", isAuthentic, updateTaskpage);
 
-router.post("/dashboard/updatetask", isAuthentic, updateTask);
+router.post("/dashboard/updatetasks", isAuthentic, updateTask);
 // delete task from the upcoming tasks
 router.post("/dashboard/delete", isAuthentic, deleteTask);
 // complete Task 

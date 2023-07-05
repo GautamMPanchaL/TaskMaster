@@ -42,13 +42,25 @@
                                 <div class="countdown-timer" data-deadline="<%= upx[i].deadline %>"></div>
                             </td>
                             <td>
-                                <button class="com" >Complete</button>
+                                <td>
+                                    <form style="padding: 0%;" action="/dashboard/completed" method="post">
+                                        <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
+                                        <button type="submit">Complete</button>
+                                    </form>
+                                </td>
+
                             </td>
                             <td>
-                                <button class="upd" >Update</button>
+                                <form style="padding: 0%;" action="/dashboard/updatetask" method="post">
+                                    <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
+                                    <button type="submit">Update</button>
+                                </form>
                             </td>
                             <td>
-                                <button class="del" >Delete</button>
+                                <form style="padding: 0%;" action="/dashboard/delete" method="post">
+                                    <input type="hidden" name="taskId" value="<%= upx[i]._id%>">
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     </div>
@@ -68,7 +80,7 @@
                     <th>Deadline Date</th>
                     <th>Deadline Time</th>
                     <th>Timer</th>
-                    <th>Complete</th>
+                    <th>Completed</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
@@ -94,13 +106,22 @@
                                 Deadline Passed
                             </td>
                             <td>
-                                <button>Complete</button>
+                                <form style="padding: 0%;" action="/dashboard/completed" method="post">
+                                    <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
+                                    <button type="submit">Complete</button>
+                                </form>
                             </td>
                             <td>
-                                <button>Update</button>
+                                <form style="padding: 0%;" action="/dashboard/updatetask" method="post">
+                                    <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
+                                    <button type="submit">Update</button>
+                                </form>
                             </td>
                             <td>
-                                <button>Delete</button>
+                                <form style="padding: 0%;" action="/dashboard/delete" method="post">
+                                    <input type="hidden" name="taskId" value="<%= latx[i]._id%>">
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     </div>

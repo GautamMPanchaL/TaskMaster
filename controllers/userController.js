@@ -112,6 +112,7 @@ exports.dashboard = async (req, res) => {
         else{
             st22 = user.upcomingtasks[i].deadline;
             st22 = st22.toString();
+            // st22 = task && task.deadline ? task.deadline.toString() : "";
             // console.log(st22);
             upx.push(user.upcomingtasks[i]);
             upnx.push({first : st22.substr(0,15),second : st22.substr(16,8)});
@@ -163,8 +164,8 @@ exports.addnewTask = async (req, res) => {
 // handle post request for the update task page ;
 exports.updateTask = async (req, res) => {
   const userId = req.user.id;
-  const taskId = req.params.taskId;
-  const { updatedName, updatedCategory, updatedDeadline } = req.body;
+  const taskId = req.body.taskId;
+  const { updatedName, updatedDeadline} = req.body;
 
   try {
     const user = await User.findById(userId);
@@ -173,9 +174,7 @@ exports.updateTask = async (req, res) => {
       return res.status(404);
     }
 
-    const taskToUpdate = user.upcomingTasks.id(taskId);
-
-    // Find the task by its ID in the upcomingTasks array
+    const taskToUpdate = user.upcomingtasks.id(taskId);
     if (!taskToUpdate) {
       res.render("error", { error: 404, field: "Task not found" });
       return res.status(404);
@@ -183,7 +182,6 @@ exports.updateTask = async (req, res) => {
 
     // Update the task content
     taskToUpdate.name = updatedName;
-    taskToUpdate.category = updatedCategory;
     taskToUpdate.deadline = updatedDeadline;
 
     // Save the updated user document
@@ -191,7 +189,7 @@ exports.updateTask = async (req, res) => {
     let x = JSON.stringify(user);
     console.log(x);
     console.log("after update");
-    res.render('dashboard', {puser : x});
+    res.redirect('/dashboard');
     return res.status(200);
   } catch (error) {
     console.error(error);
@@ -203,12 +201,11 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// get request for update task page;
-exports.updateTaskpage = async (req, res) => {
 
+
+exports.updateTaskpage = async (req, res) => {
   const userId = req.user.id;
-  const taskId = req.params.taskId;
-   
+  const taskId = req.body.taskId;
   try {
     const user = await User.findById(userId);
     if (!user) {
@@ -216,7 +213,7 @@ exports.updateTaskpage = async (req, res) => {
       return res.status(404);
     }
 
-    const taskToUpdate = user.upcomingTasks.id(taskId);
+    const taskToUpdate = user.upcomingtasks.find(task => task._id.toString() === taskId);
     if (!taskToUpdate) {
       res.render("error", { error: 404, field: "Task not found" });
       return res.status(404);
@@ -225,87 +222,54 @@ exports.updateTaskpage = async (req, res) => {
     let x = JSON.stringify(user);
     console.log(x);
     console.log("User Edit");
-    res.render('edittask', {name : taskToUpdate.name, category: taskToUpdate.category , deadline: taskToUpdate.deadline, puser : x });
+    res.render('edittask', {
+      taskId: taskId,
+      name: taskToUpdate.name,
+      category: taskToUpdate.category,
+      deadline: taskToUpdate.deadline,
+      puser: x
+    });
     return res.status(200);
   } catch (error) {
     console.error(error);
     res.render("error", {
       error: 500,
-      field: "Internal Server Error, failed to update the task"
+      field: "Internal Server Error, failed to update the task......."
     });
     return res.status(500);
   }
-}
-
-
-exports.deleteTask = async(req,res)=>{
-const userId = req.user.id;
-const taskId = req.params.taskId;
-
-try {
-  const user = await User.findById(userId);
-  if (!user) {
-    res.render("error", { error: 404, field: "User not found" });
-    return res.status(404);
-  }
-
-  const taskToUpdate = user.upcomingTasks.id(taskId);
-  if (!taskToUpdate) {
-    res.render("error", { error: 404, field: "Task not found" });
-    return res.status(404);
-  }
-  user.upcomingTasks.pull(taskId);
-  await user.save();
-  let x = JSON.stringify(user);
-    console.log(x);
-    console.log("Delete Task");
-  res.render("dashboard", { message: "Task deleted successfully" ,puser : x});
-  return res.status(200);
-} catch (error) {
-  console.error(error);
-  res.render("error", {
-    error: 500,
-    field: "Internal Server Error, failed to delete the task"
-  });
-  return res.status(500);
-} 
-}
+};
 
 
 
-exports.completeTask = async (req, res) => {
+exports.deleteTask = async (req, res) => {
   const userId = req.user.id;
-  const taskId = req.params.taskId;
-
-  try {
+  const taskId = req.body.taskId;
+  console.log(taskId);
+   try {
     const user = await User.findById(userId);
     if (!user) {
       res.render("error", { error: 404, field: "User not found" });
       return res.status(404);
     }
 
-    const taskToDelete = user.upcomingTasks.id(taskId);
-    if (!taskToDelete) {
+    const taskToDeleteIndex = user.upcomingtasks.findIndex(task => task._id.toString() === taskId);
+    if (taskToDeleteIndex === -1) {
       res.render("error", { error: 404, field: "Task not found" });
       return res.status(404);
     }
-    user.upcomingTasks.pull(taskId);
-    const nowDate = new Date();
-    const completedTask = {
-      name: taskToDelete.name,
-      category: taskToDelete.category,
-      deadline: taskToDelete.deadline,
-      dateCompleted:nowDate
-    };
-    user.completedTasks.push(completedTask);
+
+    const taskToDelete = user.upcomingtasks[taskToDeleteIndex];
+    user.upcomingtasks.pull(taskToDelete._id);
     await user.save();
+
     let x = JSON.stringify(user);
     console.log(x);
     console.log("Complete Task");
-    res.render("dashboard", {message: "Task Completed successfully" , puser : x });
+
+    res.redirect("/dashboard");
     return res.status(200);
-  } 
-  catch (error) {
+  } catch (error) {
     console.error(error);
     res.render("error", {
       error: 500,
@@ -314,6 +278,61 @@ exports.completeTask = async (req, res) => {
     return res.status(500);
   }
 };
+
+
+
+
+
+
+exports.completeTask = async (req, res) => {
+  console.log(req.body);
+  const userId = req.user.id;
+  const taskId = req.body.taskId;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      res.render("error", { error: 404, field: "User not found" });
+      return res.status(404);
+    }
+
+    const taskToDeleteIndex = user.upcomingtasks.findIndex(task => task._id.toString() === taskId);
+    if (taskToDeleteIndex === -1) {
+      res.render("error", { error: 404, field: "Task not found" });
+      return res.status(404);
+    }
+
+    const taskToDelete = user.upcomingtasks[taskToDeleteIndex];
+    user.upcomingtasks.pull(taskToDelete._id);
+
+    const nowDate = new Date();
+    const completedTask = {
+      name: taskToDelete.name,
+      category: taskToDelete.category,
+      deadline: taskToDelete.deadline,
+      dateCompleted: nowDate
+    };
+    user.completedTasks.push(completedTask);
+
+    await user.save();
+
+    let x = JSON.stringify(user);
+    console.log(x);
+    console.log("Complete Task");
+
+    res.redirect("/dashboard");
+    return res.status(200);
+  } catch (error) {
+    console.error(error);
+    res.render("error", {
+      error: 500,
+      field: "Internal Server Error, failed to complete the task"
+    });
+    return res.status(500);
+  }
+};
+
+
 
 exports.completePage = async (req, res) => {
   const userId = req.user.id;

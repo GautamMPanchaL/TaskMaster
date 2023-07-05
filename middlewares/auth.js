@@ -10,7 +10,7 @@ exports.isAuthentic = (req, res, next)=>{
     try{
         // extract jwt token
         const token =  req.cookies.TaskMaster;
-        console.log(req.cookies.TaskMaster);
+        // console.log(req.cookies.TaskMaster);
         if(!token){
             res.render("error", {error:401, field:"Token missing"});
             return res.status(401);

@@ -12,12 +12,13 @@
         <h1> Update Task </h1>
     </div>
     <br><br>
-    <form action="/dashboard/updatetask" method="POST">
+    <form action="/dashboard/updatetasks" method="POST">
+        <input type="hidden" name="taskId" value="<%=taskId%>">
         <label class="lform" for="nameoftask">Enter the Task : </label>
-        <input class="rform" type="text" id="nameoftask" name="nameoftask" required readonly value="<%=tname%>"
+        <input class="rform" type="text" name = "updatedName" id="nameoftask" value="<%=name%>"
             autocomplete="false"><br><br>
-        <label class="lform" for="category">Category</label>
-        <select class="rform" id="category" name="category">
+        <label class="lform" for="category" >Category</label>
+        <select class="rform" id="category" name="category" value = "<%=category%>" disabled>
             <option name="Education" selected>Education</option>
             <option name="Personal">Personal</option>
             <option name="Bills">Bills</option>
@@ -31,8 +32,7 @@
         </div>
         <br>
         <label class="lform" for="endoftask">Date:</label>
-        <input class="rform" type="datetime-local" id="endoftask" name="endoftask" required
-            autocomplete="false"><br><br>
+        <input class="rform" type="datetime-local" id="endoftask" name="updatedDeadline" value="<%= deadline ? deadline.toISOString().slice(0, 16) : '' %>""><br><br>
 
         <!-- <label for="transaction-option">Transaction Option:</label> -->
         <br>
