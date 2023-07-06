@@ -26,7 +26,7 @@ body.active{
     left: 0;
     top: 0;
     width: 300px;
-    background: #c8c3c3;
+    background: linear-gradient(170deg, #ff0094 21% 21%, #d87fff 100%);
     /* border-left: 10px solid var(--blue); */
     transition: 0.5s;
     overflow-x: hidden;

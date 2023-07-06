@@ -38,7 +38,7 @@
                                 <%=upnx[i].second %>
                             </td>
                             <td>
-                                <div class="countdown-timer" data-deadline="<%= upx[i].deadline %>"></div>
+                                <div class="countdown-timer" data-name="<%=upx[i].name%>" data-deadline="<%= upx[i].deadline %>"></div>
                             </td>
                             <td>
                                 <form style="padding: 0%;" action="/dashboard/completed" method="post">

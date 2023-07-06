@@ -135,7 +135,7 @@
     width: 100%;
     display: grid;
     /* background: var(--white); */
-    background: linear-gradient(45deg, #7dafe0, #da84af);
+    background: linear-gradient(241deg, #e21b8f 13% 13%, #c6bb23 100%);
     padding: 2%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;

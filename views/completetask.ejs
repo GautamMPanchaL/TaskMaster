@@ -17,34 +17,40 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Deadline Date</th>
-                        <th>Deadline Time</th>
-                        <th>Completed Date</th>
-                        <th>Completed Time</th>
+                        <th style="padding-bottom: 30px !important;">Name</th>
+                        <th style="padding-bottom: 30px !important;">Category</th>
+                        <th style="padding-bottom: 30px !important;">Deadline Date</th>
+                        <th style="padding-bottom: 30px !important;">Deadline Time</th>
+                        <th style="padding-bottom: 30px !important;">Completed Date</th>
+                        <th style="padding-bottom: 30px !important;">Completed Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     <br>
-                    <% for (var i=0; i < Math.min(completex.length,30); i++) { %>
+                    <% for (var i=0; i < completex.length; i++) { %>
                         <tr class="earn">
-                            <td>
+                            <td style="border-top-left-radius: 10px; border-bottom-left-radius: 10px; padding-top: 1em;
+    padding-bottom: 1em;">
                                 <%=completex[i].name %>
                             </td>
-                            <td>
+                            <td style="padding-top: 1em;
+    padding-bottom: 1em;">
                                 <%=completex[i].category %>
                             </td>
-                            <td>
+                            <td style="padding-top: 1em;
+    padding-bottom: 1em;"> 
                                 <%=dx[i].date%>
                             </td>
-                            <td>
+                            <td style="padding-top: 1em;
+    padding-bottom: 1em;">
                                 <%=dx[i].time%>
                             </td>
-                            <td>
+                            <td style="padding-top: 1em;
+    padding-bottom: 1em;">
                                 <%=compx[i].date %>
                             </td>
-                            <td>
+                            <td style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-top: 1em;
+    padding-bottom: 1em;">
                                 <%=compx[i].time %>
                             </td>
                         </tr>
@@ -53,4 +59,25 @@
             </table>
         </div>
     </div>
+    <script>
+        let dates = [],dta = [];
+        
+        const ctx = document.getElementById('myChart');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Task Completed',
+                        data: dta,
+                        borderWidth: 1,
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                }
+            });
+    </script>
 <%-include("partials/pfooter")-%>

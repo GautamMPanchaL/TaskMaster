@@ -135,7 +135,7 @@
     padding: 2%;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
-    background: linear-gradient(45deg, #7dafe0, #da84af);
+    background: linear-gradient(241deg, #e4138d 13% 13%, #c6bb23 100%);
 }
 
 .cardHeader {
@@ -147,7 +147,7 @@
 
 .cardHeader h2 {
     font-weight: 600;
-    color: #c71631;
+    color: #a41111;
 }
 
 .details .table {
@@ -182,13 +182,16 @@
 }
 
 .details .recent table tbody tr.earn:hover {
-    background: #078f27;
+    background: var(--blue);
     color: var(--white);
+    /* border: 2px solid black; */
 }
 
 .details .recent table tbody tr.expn:hover {
-    background: var(--red);
+    background: rgb(198, 13, 13);
     color: var(--white);
+    /* border-radius: 10px !important; */
+    /* border: 2px solid black; */
 }
 
 @media (max-width : 990px) {
