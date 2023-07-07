@@ -60,17 +60,73 @@
         </div>
     </div>
     <script>
-        let dates = [],dta = [];
-        
-        const ctx = document.getElementById('myChart');
+        let dx = '<%=dxs%>';
+        dx = dx.replace(/&#34;/gi, '\"');
+        dx = JSON.parse(dx);
+        let compx = '<%=compxs%>';
+        compx = compx.replace(/&#34;/gi, '\"');
+        compx = JSON.parse(compx);
+        let dates = [],dta = [],ldta = [];
+        let mnm = new Map(),nmn = new Map();
+        let x;
+        for(let i = 0;i<dx.length;i++){
+            x = new Date(dx[i].date).toISOString();
+            nmn.set(x, nmn.get(x) == undefined ? 1 : parseInt(parseInt(nmn.get(x)) + 1));
+        }
+        for(let i = 0;i<compx.length;i++){
+            x = new Date(compx[i].date).toISOString();
+            mnm.set(x, mnm.get(x) == undefined ? 1 : parseInt(parseInt(mnm.get(x)) + 1));
+        }
+        console.log(nmn);
+        console.log(mnm);
+        nmn.forEach(function (value, key) {
+                // console.log(key + " "+ value);
+                x = dates.includes(key);
+                if(x == false)
+                    dates.push(key);
+        });
+        mnm.forEach(function (value, key) {
+                x = dates.includes(key);
+                if (x == false)
+                    dates.push(key);
+        });
+        dates = dates.sort();
+        console.log(dates);
+        dates.forEach(function(key){
+            if(nmn.get(key) == undefined)
+                ldta.push(0);
+            else
+                ldta.push(nmn.get(key));
+            if (mnm.get(key) == undefined)
+                dta.push(0);
+            else
+                dta.push(mnm.get(key));
+        });
+        console.log(ldta);
+        console.log(dta)
+        console.log(dates);
+        let datex = [];
+        for(let i = 0;i<dates.length;i++){
+            datex.push(new Date(dates[i]).toLocaleDateString());
+        }
+        const ctx = document.getElementById('myDaily');
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: dates,
+                    labels: datex,
                     datasets: [{
-                        label: 'Task Completed',
+                        label: 'Task Completed On',
                         data: dta,
-                        borderWidth: 1,
+                        borderWidth: 3,
+                        borderColor : '#07ad47',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Task Deadline',
+                        data: ldta,
+                        borderWidth: 3,
+                        borderColor : '#ce1313',
                         fill: false,
                         tension: 0.1
                     }]

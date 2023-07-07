@@ -362,7 +362,7 @@ exports.completePage = async (req, res) => {
       compx.push({date : str.substr(0,15),time : str.substr(16,8)});
     }
     console.log("Complete Page");
-    res.render("completetask", {puser : x , completex : completex ,compx : compx,dx : dx});
+    res.render("completetask", {puser : x , completex : completex ,compx : compx,dx : dx,compxs : JSON.stringify(compx),dxs : JSON.stringify(dx)});
     return res.status(200);
   } 
   catch (error) {

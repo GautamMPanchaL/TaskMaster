@@ -29,7 +29,7 @@
 .cardBox .card {
     position: relative;
     /* background: var(--white); */
-    background: linear-gradient(133deg, #ff0094 4% 4%, #ffec00 45% 45%, 70%, #4dabff 83% 99%);
+    background: linear-gradient(133deg, #cec2c9 4% 4%, #bcbbb0 45% 45%, 70%, #eaf2f8 83% 99%);
     padding: 3%;
     border-radius: 20px;
     display: flex;
