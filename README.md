@@ -24,6 +24,10 @@ task deadline. By prominently displaying the countdown, users can stay aware of 
 
 
 
+https://github.com/GautamMPanchaL/TaskMaster/assets/97393095/5f4e5174-8b74-49d1-ae80-8dabb59688b6
+
+
+
 ## Tools & technologies used
 
 * Frontend : HTML5, CSS3, JavaScript, EJS
